@@ -1,0 +1,297 @@
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#111111">
+<meta name="description" content="PSP Entertainment — Organização de eventos, decoração e experiências memoráveis.">
+<title>PSP Entertainment | Eventos & Experiências</title>
+<style>
+:root {
+  --bg: #f7f6f2;
+  --dark: #171717;
+  --muted: #77766f;
+  --line: #deddd6;
+  --accent: #b9a47a;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--dark);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+}
+a { color: inherit; text-decoration: none; }
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 7%;
+  border-bottom: 1px solid var(--line);
+}
+.logo {
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+.logo span { color: var(--accent); }
+nav {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+  font-size: 13px;
+}
+nav a:hover { color: #927b4c; }
+.lang {
+  background: transparent;
+  border: 1px solid var(--line);
+  padding: 8px 12px;
+  cursor: pointer;
+}
+.hero {
+  padding: 115px 8% 120px;
+  min-height: 590px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background:
+    radial-gradient(ellipse at 85% 15%, #e7e0d1 0%, transparent 38%),
+    var(--bg);
+}
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #927b4c;
+  font-size: 11px;
+  font-weight: bold;
+}
+h1 {
+  font-size: clamp(45px, 8vw, 94px);
+  line-height: 1.02;
+  letter-spacing: -4px;
+  max-width: 900px;
+  margin: 24px 0;
+  font-weight: 600;
+}
+h1 em { font-family: Georgia, serif; font-weight: 400; }
+.hero p {
+  max-width: 520px;
+  color: var(--muted);
+  font-size: 17px;
+}
+.button {
+  display: inline-block;
+  background: var(--dark);
+  color: white;
+  padding: 15px 23px;
+  margin-top: 20px;
+  font-size: 13px;
+  letter-spacing: .5px;
+  border: 1px solid var(--dark);
+}
+.button:hover { background: #39362f; }
+section { padding: 90px 8%; }
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 25px;
+  margin-bottom: 40px;
+}
+h2 {
+  font-size: clamp(32px, 5vw, 52px);
+  line-height: 1.1;
+  letter-spacing: -1.5px;
+  margin: 10px 0;
+  font-weight: 500;
+}
+.section-head p {
+  max-width: 360px;
+  color: var(--muted);
+  font-size: 14px;
+}
+.services {
+  background: #eeede7;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+.service {
+  border: 1px solid #d9d7cf;
+  padding: 28px;
+  min-height: 235px;
+}
+.number {
+  color: #927b4c;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+.service h3 {
+  margin-top: 40px;
+  font-size: 22px;
+  font-weight: 500;
+}
+.service p {
+  color: var(--muted);
+  font-size: 14px;
+}
+.about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+  align-items: center;
+}
+.about-visual {
+  min-height: 330px;
+  background: linear-gradient(140deg, #d9d0bd, #a89a7d);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+.about-mark {
+  border: 1px solid #f7f6f2aa;
+  padding: 35px;
+  color: #fff;
+  text-align: center;
+  letter-spacing: 5px;
+  font-size: 24px;
+}
+.about p { color: var(--muted); }
+.contact {
+  background: var(--dark);
+  color: white;
+}
+.contact .eyebrow { color: #c7b38a; }
+.contact p { color: #c5c3bd; max-width: 490px; }
+.contact .button {
+  background: var(--bg);
+  color: var(--dark);
+  border-color: var(--bg);
+}
+footer {
+  padding: 25px 8%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px;
+  color: var(--muted);
+  font-size: 12px;
+}
+@media(max-width:760px) {
+  header { padding: 18px 5%; flex-wrap: wrap; gap: 15px; }
+  nav { gap: 13px; flex-wrap: wrap; }
+  .hero { padding: 85px 6%; min-height: 510px; }
+  h1 { letter-spacing: -2px; }
+  section { padding: 65px 6%; }
+  .section-head { display: block; }
+  .grid { grid-template-columns: 1fr; }
+  .about { grid-template-columns: 1fr; gap: 30px; }
+  .about-visual { min-height: 230px; }
+}
+</style>
+</head>
+<body>
+<header>
+  <a class="logo" href="#inicio">PSP<span>.</span> ENTERTAINMENT</a>
+  <nav>
+    <a href="#inicio" data-pt="Início" data-en="Home">Início</a>
+    <a href="#servicos" data-pt="Serviços" data-en="Services">Serviços</a>
+    <a href="#sobre" data-pt="Sobre nós" data-en="About">Sobre nós</a>
+    <a href="#contactos" data-pt="Contactos" data-en="Contact">Contactos</a>
+    <button class="lang" id="lang" type="button">EN</button>
+  </nav>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+  <span class="eyebrow" data-pt="Eventos · Decoração · Experiências"
+  data-en="Events · Design · Experiences">Eventos · Decoração · Experiências</span>
+  <h1 data-pt="Criamos momentos.<br><em>Marcamos histórias.</em>"
+  data-en="We create moments.<br><em>We make history.</em>">Criamos momentos.<br><em>Marcamos histórias.</em></h1>
+  <p data-pt="Transformamos ideias em experiências únicas, com criatividade, atenção ao detalhe e uma visão contemporânea do entretenimento."
+  data-en="We transform ideas into unique experiences through creativity, attention to detail and a contemporary vision of entertainment.">Transformamos ideias em experiências únicas, com criatividade, atenção ao detalhe e uma visão contemporânea do entretenimento.</p>
+  <div><a class="button" href="#contactos" data-pt="VAMOS CONVERSAR ↗" data-en="LET'S TALK ↗">VAMOS CONVERSAR ↗</a></div>
+</section>
+
+<section class="services" id="servicos">
+  <div class="section-head">
+    <div>
+      <span class="eyebrow" data-pt="O que fazemos" data-en="What we do">O que fazemos</span>
+      <h2 data-pt="Ideias que ganham vida." data-en="Ideas brought to life.">Ideias que ganham vida.</h2>
+    </div>
+    <p data-pt="Soluções pensadas para transformar cada ocasião numa experiência especial."
+    data-en="Thoughtful solutions that turn every occasion into a special experience.">Soluções pensadas para transformar cada ocasião numa experiência especial.</p>
+  </div>
+  <div class="grid">
+    <article class="service">
+      <span class="number">01 /</span>
+      <h3 data-pt="Organização de eventos" data-en="Event production">Organização de eventos</h3>
+      <p data-pt="Planeamento e coordenação de eventos sociais, corporativos e culturais."
+      data-en="Planning and coordination for social, corporate and cultural events.">Planeamento e coordenação de eventos sociais, corporativos e culturais.</p>
+    </article>
+    <article class="service">
+      <span class="number">02 /</span>
+      <h3 data-pt="Decoração & conceito" data-en="Décor & concept">Decoração & conceito</h3>
+      <p data-pt="Conceitos visuais e ambientes criados à medida de cada ocasião."
+      data-en="Visual concepts and settings tailored to each occasion.">Conceitos visuais e ambientes criados à medida de cada ocasião.</p>
+    </article>
+    <article class="service">
+      <span class="number">03 /</span>
+      <h3 data-pt="Experiências & parcerias" data-en="Experiences & partnerships">Experiências & parcerias</h3>
+      <p data-pt="Colaborações criativas e experiências que aproximam pessoas e marcas."
+      data-en="Creative collaborations and experiences connecting people and brands.">Colaborações criativas e experiências que aproximam pessoas e marcas.</p>
+    </article>
+  </div>
+</section>
+
+<section id="sobre" class="about">
+  <div class="about-visual">
+    <div class="about-mark">PSP<br>ENTERTAINMENT</div>
+  </div>
+  <div>
+    <span class="eyebrow" data-pt="A nossa visão" data-en="Our vision">A nossa visão</span>
+    <h2 data-pt="Cada detalhe conta." data-en="Every detail matters.">Cada detalhe conta.</h2>
+    <p data-pt="A PSP Entertainment nasceu da vontade de criar experiências com identidade, propósito e atenção ao detalhe. Trabalhamos para dar vida a ideias e criar momentos que ficam na memória."
+    data-en="PSP Entertainment was born from a desire to create experiences with identity, purpose and attention to detail. We bring ideas to life and create moments worth remembering.">A PSP Entertainment nasceu da vontade de criar experiências com identidade, propósito e atenção ao detalhe. Trabalhamos para dar vida a ideias e criar momentos que ficam na memória.</p>
+    <p data-pt="Cada projeto começa com uma conversa e uma visão partilhada."
+    data-en="Every project starts with a conversation and a shared vision.">Cada projeto começa com uma conversa e uma visão partilhada.</p>
+  </div>
+</section>
+
+<section class="contact" id="contactos">
+  <span class="eyebrow" data-pt="O próximo passo começa aqui" data-en="Your next project starts here">O próximo passo começa aqui</span>
+  <h2 data-pt="Vamos criar algo<br>memorável?" data-en="Shall we create<br>something memorable?">Vamos criar algo<br>memorável?</h2>
+  <p data-pt="Conta-nos a tua ideia. Estamos disponíveis para conversar sobre o teu próximo evento ou projeto."
+  data-en="Tell us your idea. We'd love to discuss your next event or project.">Conta-nos a tua ideia. Estamos disponíveis para conversar sobre o teu próximo evento ou projeto.</p>
+  <a class="button" href="mailto:info@pspentertainment.online">INFO@PSPENTERTAINMENT.ONLINE ↗</a>
+</section>
+</main>
+
+<footer>
+  <span>© <span id="year"></span> PSP Entertainment</span>
+  <span data-pt="Eventos e experiências com identidade." data-en="Events and experiences with identity.">Eventos e experiências com identidade.</span>
+</footer>
+
+<script>
+const langButton = document.getElementById('lang');
+let language = 'pt';
+
+langButton.addEventListener('click', () => {
+  language = language === 'pt' ? 'en' : 'pt';
+  document.documentElement.lang = language;
+  document.querySelectorAll('[data-pt]').forEach(element => {
+    const value = element.dataset[language];
+    if (value) element.innerHTML = value;
+  });
+  langButton.textContent = language === 'pt' ? 'EN' : 'PT';
+});
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
