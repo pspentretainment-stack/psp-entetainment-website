@@ -4,311 +4,799 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#111111">
+<meta name="theme-color" content="#080808">
 <meta name="description" content="PSP Entertainment — Organização de eventos e experiências memoráveis.">
-<title>PSP Entertainment | Eventos & Experiências</title>
-  <link rel="icon" type="image/webp" href="./4549.webp">
+<title>PSP Entertainment | Eventos e Experiências</title>
+<link rel="icon" href="./4549.webp" type="image/webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
 <style>
 :root {
-  --bg: #101010;
-  --dark: #f5f1e8;
-  --muted: #b8b2a8;
-  --line: rgba(255, 255, 255, 0.12);
-  --accent: #b9a47a;
+  --bg: #080808;
+  --panel: #11100e;
+  --gold: #c6a66a;
+  --gold-light: #ead5a6;
+  --white: #f7f4ed;
+  --muted: #b8b3a8;
+  --line: rgba(198,166,106,.35);
 }
-}
+
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
 body {
   margin: 0;
-  background:
-  radial-gradient(
-    ellipse at 15% 0%,
-    rgba(185, 164, 122, 0.12),
-    transparent 42%
-  ),
-  linear-gradient(180deg, #171717 0%, #0b0b0b 100%);
-  color: var(--dark);
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.6;
+  background: radial-gradient(ellipse at 80% 8%, rgba(142,103,43,.13), transparent 34rem), var(--bg);
+  color: var(--white);
+  font-family: "DM Sans", sans-serif;
+  line-height: 1.7;
 }
+
 a { color: inherit; text-decoration: none; }
+
+.wrap {
+  width: min(1160px, calc(100% - 40px));
+  margin: auto;
+}
+
+.topline {
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
 header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(8,8,8,.96);
+  border-bottom: 1px solid rgba(198,166,106,.2);
+  backdrop-filter: blur(15px);
+}
+
+.nav {
+  min-height: 82px;
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: center;
-  padding: 22px 7%;
-  border-bottom: 1px solid var(--line);
+  gap: 20px;
 }
-.logo {
-  font-size: 19px;
-  font-weight: 800;
-  letter-spacing: 2px;
-}
-.logo span { color: var(--accent); }
-  .site-logo {
-  display: block;
-  width: 170px;
-  max-width: 100%;
-  height: auto;
-  object-fit: contain;
-}
-nav {
+
+.brand {
   display: flex;
-  gap: 25px;
   align-items: center;
-  font-size: 13px;
+  gap: 12px;
 }
-nav a:hover { color: #927b4c; }
+
+.brandmark {
+  font-family: Montserrat, sans-serif;
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: -3px;
+  color: var(--white);
+}
+
+.brandname {
+  display: block;
+  color: var(--gold-light);
+  font-size: 9px;
+  letter-spacing: 3px;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.links a:hover { color: var(--gold-light); }
+
 .lang {
-  background: transparent;
   border: 1px solid var(--line);
-  padding: 8px 12px;
+  color: var(--gold-light);
+  background: transparent;
+  padding: 8px 11px;
   cursor: pointer;
 }
+
+.menu-btn {
+  display: none;
+  background: transparent;
+  color: white;
+  border: 1px solid var(--line);
+  padding: 8px 11px;
+}
+
 .hero {
-  padding: 115px 8% 120px;
-  min-height: 590px;
+  min-height: 610px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  align-items: center;
   background:
-    radial-gradient(ellipse at 85% 15%, #e7e0d1 0%, transparent 38%),
-    var(--bg);
+    linear-gradient(90deg, rgba(7,7,7,.97), rgba(7,7,7,.78), rgba(7,7,7,.4)),
+    url("https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1800&q=85") center/cover;
+  border-bottom: 1px solid var(--line);
 }
-.eyebrow {
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  color: #927b4c;
+
+.hero-inner {
+  padding: 90px 0;
+  max-width: 780px;
+}
+
+.eyebrow, .kicker {
+  color: var(--gold-light);
   font-size: 11px;
-  font-weight: bold;
+  letter-spacing: 3px;
+  text-transform: uppercase;
 }
+
+h1, h2, h3 {
+  font-family: Montserrat, sans-serif;
+  line-height: 1.2;
+}
+
 h1 {
-  font-size: clamp(45px, 8vw, 94px);
-  line-height: 1.02;
-  letter-spacing: -4px;
-  max-width: 900px;
-  margin: 24px 0;
-  font-weight: 600;
+  font-size: clamp(42px, 7vw, 78px);
+  letter-spacing: -3px;
+  margin: 25px 0;
 }
-h1 em { font-family: Georgia, serif; font-weight: 400; }
+
+h1 span { color: var(--gold-light); }
+
 .hero p {
-  max-width: 520px;
-  color: var(--muted);
+  max-width: 590px;
+  color: #d1ccc2;
   font-size: 17px;
 }
-.button {
-  display: inline-block;
-  background: var(--dark);
-  color: white;
-  padding: 15px 23px;
-  margin-top: 20px;
-  font-size: 13px;
-  letter-spacing: .5px;
-  border: 1px solid var(--dark);
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 13px;
+  margin-top: 30px;
 }
-.button:hover { background: #39362f; }
-section { padding: 90px 8%; }
+
+.btn {
+  display: inline-block;
+  padding: 13px 20px;
+  border: 1px solid var(--gold);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: .2s;
+}
+
+.btn.primary {
+  background: linear-gradient(110deg, #a78248, #e0c58d);
+  color: #0c0a07;
+  border-color: transparent;
+}
+
+.btn:hover { transform: translateY(-2px); }
+
+.hero-note {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 38px;
+  color: #d4c8af;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.hero-note span::before {
+  content: "✦";
+  color: var(--gold);
+  margin-right: 8px;
+}
+
+.section { padding: 90px 0; }
+
 .section-head {
   display: flex;
-  justify-content: space-between;
   align-items: end;
-  gap: 25px;
+  justify-content: space-between;
+  gap: 30px;
   margin-bottom: 40px;
 }
-h2 {
-  font-size: clamp(32px, 5vw, 52px);
-  line-height: 1.1;
-  letter-spacing: -1.5px;
-  margin: 10px 0;
-  font-weight: 500;
+
+.section h2 {
+  font-size: clamp(30px, 4vw, 47px);
+  letter-spacing: -1px;
+  margin-bottom: 15px;
 }
+
 .section-head p {
-  max-width: 360px;
+  max-width: 420px;
   color: var(--muted);
   font-size: 14px;
 }
+
 .services {
-  background: #eeede7;
-}
-.grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
+  gap: 15px;
 }
+
 .service {
-  border: 1px solid #d9d7cf;
   padding: 28px;
+  border: 1px solid rgba(198,166,106,.25);
+  background: linear-gradient(145deg, rgba(255,255,255,.045), rgba(255,255,255,.01));
   min-height: 235px;
+  transition: .2s;
 }
-.number {
-  color: #927b4c;
+
+.service:hover {
+  border-color: var(--gold);
+  transform: translateY(-4px);
+}
+
+.num {
+  color: var(--gold);
   font-size: 12px;
   letter-spacing: 2px;
 }
+
 .service h3 {
-  margin-top: 40px;
-  font-size: 22px;
-  font-weight: 500;
+  font-size: 20px;
+  margin-top: 28px;
 }
-.service p {
+
+.service p, .about-copy p {
   color: var(--muted);
   font-size: 14px;
 }
-.about {
+
+.about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 70px;
   align-items: center;
+  gap: 55px;
 }
+
 .about-visual {
-  min-height: 330px;
-  background: linear-gradient(140deg, #d9d0bd, #a89a7d);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 30px;
+  min-height: 390px;
+  background:
+    linear-gradient(0deg, rgba(0,0,0,.55), transparent),
+    url("https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1200&q=85") center/cover;
+  border: 1px solid var(--line);
 }
-.about-mark {
-  border: 1px solid #f7f6f2aa;
-  padding: 35px;
-  color: #fff;
-  text-align: center;
-  letter-spacing: 5px;
-  font-size: 24px;
+
+.values {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 28px;
 }
-.about p { color: var(--muted); }
-.contact {
-  background: var(--dark);
-  color: white;
+
+.value {
+  border-top: 1px solid var(--gold);
+  padding-top: 14px;
 }
-.contact .eyebrow { color: #c7b38a; }
-.contact p { color: #c5c3bd; max-width: 490px; }
-.contact .button {
-  background: var(--bg);
-  color: var(--dark);
-  border-color: var(--bg);
+
+.value b {
+  display: block;
+  color: var(--gold-light);
 }
-footer {
-  padding: 25px 8%;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 15px;
+
+.value span {
   color: var(--muted);
   font-size: 12px;
 }
-@media(max-width:760px) {
-  header { padding: 18px 5%; flex-wrap: wrap; gap: 15px; }
-  nav { gap: 13px; flex-wrap: wrap; }
-  .hero { padding: 85px 6%; min-height: 510px; }
-  h1 { letter-spacing: -2px; }
-  section { padding: 65px 6%; }
+
+.gallery {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  grid-template-rows: 220px 220px;
+  gap: 12px;
+}
+
+.shot {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  border: 1px solid var(--line);
+  background: #191714;
+}
+
+.shot:first-child { grid-row: span 2; }
+
+.shot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .4s;
+}
+
+.shot:hover img { transform: scale(1.04); }
+
+.shot figcaption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 25px 15px 12px;
+  background: linear-gradient(transparent, rgba(0,0,0,.9));
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.team-callout {
+  border: 1px solid var(--line);
+  padding: 35px;
+  background: linear-gradient(110deg, rgba(198,166,106,.13), rgba(255,255,255,.02));
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+}
+
+.team-callout p {
+  max-width: 600px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap: 50px;
+}
+
+.contact-info p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.contact-line {
+  padding: 15px 0;
+  border-bottom: 1px solid rgba(198,166,106,.2);
+  overflow-wrap: anywhere;
+}
+
+.contact-line small {
+  display: block;
+  color: var(--gold);
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.form label {
+  color: var(--gold-light);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.form input, .form textarea {
+  width: 100%;
+  margin-top: 8px;
+  background: #111;
+  border: 1px solid rgba(198,166,106,.3);
+  padding: 13px;
+  color: white;
+}
+
+.form .full { grid-column: 1 / -1; }
+
+.form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.form button { cursor: pointer; }
+
+.form-note {
+  grid-column: 1 / -1;
+  color: #999;
+  font-size: 11px;
+}
+
+footer {
+  border-top: 1px solid var(--line);
+  background: #050505;
+  padding: 35px 0 22px;
+}
+
+.foot-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  padding-bottom: 25px;
+}
+
+.foot-tag {
+  color: var(--gold-light);
+  font-family: Montserrat, sans-serif;
+  font-size: 13px;
+  letter-spacing: 2px;
+}
+
+.social {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  font-size: 12px;
+}
+
+.social a:hover { color: var(--gold-light); }
+
+.copyright {
+  border-top: 1px solid rgba(198,166,106,.16);
+  padding-top: 18px;
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  color: #888;
+  font-size: 10px;
+}
+
+body.light {
+  --bg: #f4f0e7;
+  --white: #191713;
+  --muted: #605b52;
+  background: #f4f0e7;
+  color: var(--white);
+}
+
+body.light header { background: rgba(244,240,231,.96); }
+body.light .links a { color: #27231c; }
+body.light .service { background: rgba(255,255,255,.65); }
+body.light footer { background: #e8e0d1; }
+body.light .form input, body.light .form textarea {
+  background: white;
+  color: #111;
+}
+
+@media (max-width: 850px) {
+  .links { gap: 12px; font-size: 10px; }
+  .about-grid, .contact-grid { grid-template-columns: 1fr; }
+  .services { grid-template-columns: 1fr 1fr; }
   .section-head { display: block; }
-  .grid { grid-template-columns: 1fr; }
-  .about { grid-template-columns: 1fr; gap: 30px; }
-  .about-visual { min-height: 230px; }
+  .gallery {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 220px 180px 180px;
+  }
+  .shot:first-child {
+    grid-row: auto;
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 640px) {
+  .wrap { width: calc(100% - 28px); }
+  .menu-btn { display: block; }
+  .links {
+    display: none;
+    position: absolute;
+    top: 74px;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    background: #090909;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .links.open { display: flex; }
+  .nav { min-height: 74px; }
+  .hero { min-height: 570px; }
+  .hero-inner { padding: 70px 0; }
+  h1 { letter-spacing: -2px; }
+  .section { padding: 65px 0; }
+  .services, .values, .form { grid-template-columns: 1fr; }
+  .form .full, .form-note { grid-column: auto; }
+  .gallery {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 190px 150px 150px;
+  }
+  .team-callout { display: block; padding: 25px; }
+  .team-callout .btn { margin-top: 10px; }
+  .foot-top, .copyright {
+    align-items: flex-start;
+    flex-direction: column;
+  }
 }
 </style>
 </head>
+
 <body>
+<div class="topline"></div>
+
 <header>
-  <a class="logo" href="#inicio">
-  <img src="./4549.webp" alt="PSP Entertainment" class="site-logo">
-</a>
-  <nav>
-    <a href="#inicio" data-pt="Início" data-en="Home">Início</a>
-    <a href="#servicos" data-pt="Serviços" data-en="Services">Serviços</a>
-    <a href="#sobre" data-pt="Sobre nós" data-en="About">Sobre nós</a>
-    <a href="#contactos" data-pt="Contactos" data-en="Contact">Contactos</a>
-    <button class="lang" id="lang" type="button">EN</button>
-  </nav>
+  <div class="wrap nav">
+    <a class="brand" href="#inicio">
+      <img src="./4549.webp" alt="PSP Entertainment" style="width:65px;height:55px;object-fit:contain">
+      <span class="brandname">ENTERTAINMENT</span>
+    </a>
+
+    <nav class="links" id="navlinks">
+      <a href="#inicio" data-pt="Início" data-en="Home">Início</a>
+      <a href="#imagens" data-pt="Imagens" data-en="Gallery">Imagens</a>
+      <a href="#contacto" data-pt="Pedir contacto" data-en="Request contact">Pedir contacto</a>
+      <a href="#contactos" data-pt="Contactos" data-en="Contacts">Contactos</a>
+    </nav>
+
+    <div style="display:flex;gap:8px">
+      <button class="lang" id="theme" aria-label="Alternar tema">◐</button>
+      <button class="lang" id="language">EN</button>
+      <button class="menu-btn" id="menubtn" aria-label="Abrir menu">☰</button>
+    </div>
+  </div>
 </header>
 
 <main>
 <section class="hero" id="inicio">
-  <span class="eyebrow" data-pt="Eventos · Experiências"
-  data-en="Events · Design · Experiences">Eventos · Experiências</span>
-  <h1 data-pt="Criamos momentos.<br><em>Marcamos histórias.</em>"
-  data-en="We create moments.<br><em>We make history.</em>">Criamos momentos.<br><em>Marcamos histórias.</em></h1>
-  <p data-pt="Transformamos ideias em experiências únicas, com criatividade, atenção ao detalhe e uma visão contemporânea do entretenimento."
-  data-en="We transform ideas into unique experiences through creativity, attention to detail and a contemporary vision of entertainment.">Transformamos ideias em experiências únicas, com criatividade, atenção ao detalhe e uma visão contemporânea do entretenimento.</p>
-  <div><a class="button" href="#contactos" data-pt="VAMOS CONVERSAR ↗" data-en="LET'S TALK ↗">VAMOS CONVERSAR ↗</a></div>
-</section>
+  <div class="wrap">
+    <div class="hero-inner">
+      <div class="eyebrow" data-pt="Entre Cabo Verde e Portugal" data-en="Between Cape Verde and Portugal">Entre Cabo Verde e Portugal</div>
 
-<section class="services" id="servicos">
-  <div class="section-head">
-    <div>
-      <span class="eyebrow" data-pt="O que fazemos" data-en="What we do">O que fazemos</span>
-      <h2 data-pt="Ideias que ganham vida." data-en="Ideas brought to life.">Ideias que ganham vida.</h2>
+      <h1 data-pt="Criamos experiências.<br><span>Marcamos histórias.</span>" data-en="We create experiences.<br><span>We make history.</span>">
+        Criamos experiências.<br><span>Marcamos histórias.</span>
+      </h1>
+
+      <p data-pt="A PSP Entertainment desenvolve projetos inovadores, eventos e experiências que aproximam pessoas, marcas e culturas." data-en="PSP Entertainment develops innovative projects, events and experiences that connect people, brands and cultures.">
+        A PSP Entertainment desenvolve projetos inovadores, eventos e experiências que aproximam pessoas, marcas e culturas.
+      </p>
+
+      <div class="actions">
+        <a class="btn primary" href="#contacto" data-pt="Fale connosco ↗" data-en="Get in touch ↗">Fale connosco ↗</a>
+        <a class="btn" href="#servicos" data-pt="Descobrir serviços" data-en="Explore services">Descobrir serviços</a>
+      </div>
+
+      <div class="hero-note">
+        <span data-pt="Organização de eventos" data-en="Event management">Organização de eventos</span>
+        <span data-pt="Produção criativa" data-en="Creative production">Produção criativa</span>
+        <span data-pt="Experiências de marca" data-en="Brand experiences">Experiências de marca</span>
+      </div>
     </div>
-    <p data-pt="Soluções pensadas para transformar cada ocasião numa experiência especial."
-    data-en="Thoughtful solutions that turn every occasion into a special experience.">Soluções pensadas para transformar cada ocasião numa experiência especial.</p>
-  </div>
-  <div class="grid">
-    <article class="service">
-      <span class="number">01 /</span>
-      <h3 data-pt="Organização de eventos" data-en="Event production">Organização de eventos</h3>
-      <p data-pt="Planeamento e coordenação de eventos sociais, corporativos e culturais."
-      data-en="Planning and coordination for social, corporate and cultural events.">Planeamento e coordenação de eventos sociais, corporativos e culturais.</p>
-    </article>
-    <article class="service">
-      <span class="number">02 /</span>
-      <h3 data-pt="Decoração & conceito" data-en="Décor & concept">Decoração & conceito</h3>
-      <p data-pt="Conceitos visuais e ambientes criados à medida de cada ocasião."
-      data-en="Visual concepts and settings tailored to each occasion.">Conceitos visuais e ambientes criados à medida de cada ocasião.</p>
-    </article>
-    <article class="service">
-      <span class="number">03 /</span>
-      <h3 data-pt="Experiências & parcerias" data-en="Experiences & partnerships">Experiências & parcerias</h3>
-      <p data-pt="Colaborações criativas e experiências que aproximam pessoas e marcas."
-      data-en="Creative collaborations and experiences connecting people and brands.">Colaborações criativas e experiências que aproximam pessoas e marcas.</p>
-    </article>
   </div>
 </section>
 
-<section id="sobre" class="about">
-  <div class="about-visual">
-    <div class="about-mark">PSP<br>ENTERTAINMENT</div>
-  </div>
-  <div>
-    <span class="eyebrow" data-pt="A nossa visão" data-en="Our vision">A nossa visão</span>
-    <h2 data-pt="Cada detalhe conta." data-en="Every detail matters.">Cada detalhe conta.</h2>
-    <p data-pt="A PSP Entertainment nasceu da vontade de criar experiências com identidade, propósito e atenção ao detalhe. Trabalhamos para dar vida a ideias e criar momentos que ficam na memória."
-    data-en="PSP Entertainment was born from a desire to create experiences with identity, purpose and attention to detail. We bring ideas to life and create moments worth remembering.">A PSP Entertainment nasceu da vontade de criar experiências com identidade, propósito e atenção ao detalhe. Trabalhamos para dar vida a ideias e criar momentos que ficam na memória.</p>
-    <p data-pt="Cada projeto começa com uma conversa e uma visão partilhada."
-    data-en="Every project starts with a conversation and a shared vision.">Cada projeto começa com uma conversa e uma visão partilhada.</p>
+<section class="section" id="servicos">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="kicker" data-pt="O que fazemos" data-en="What we do">O que fazemos</div>
+        <h2 data-pt="Ideias com propósito.<br>Experiências com impacto." data-en="Purposeful ideas.<br>Experiences that matter.">Ideias com propósito.<br>Experiências com impacto.</h2>
+      </div>
+      <p data-pt="Da primeira ideia à execução, juntamos estratégia, criatividade e atenção ao detalhe para criar momentos memoráveis." data-en="From the first idea to execution, we combine strategy, creativity and attention to detail to create memorable moments.">
+        Da primeira ideia à execução, juntamos estratégia, criatividade e atenção ao detalhe para criar momentos memoráveis.
+      </p>
+    </div>
+
+    <div class="services">
+      <article class="service">
+        <span class="num">01 / EVENTOS</span>
+        <h3 data-pt="Organização de eventos" data-en="Event management">Organização de eventos</h3>
+        <p data-pt="Planeamento, coordenação e execução de eventos sociais, corporativos e experiências especiais." data-en="Planning, coordination and execution of social and corporate events and special experiences.">Planeamento, coordenação e execução de eventos sociais, corporativos e experiências especiais.</p>
+      </article>
+
+      <article class="service">
+        <span class="num">02 / CONCEITO</span>
+        <h3 data-pt="Decoração e conceito" data-en="Decoration & concept">Decoração e conceito</h3>
+        <p data-pt="Conceitos visuais, ambientes e detalhes pensados para dar identidade a cada ocasião." data-en="Visual concepts, atmospheres and details designed to give every occasion its own identity.">Conceitos visuais, ambientes e detalhes pensados para dar identidade a cada ocasião.</p>
+      </article>
+
+      <article class="service">
+        <span class="num">03 / EXPERIÊNCIAS</span>
+        <h3 data-pt="Experiências e parcerias" data-en="Experiences & partnerships">Experiências e parcerias</h3>
+        <p data-pt="Projetos colaborativos que ligam marcas, talentos e comunidades entre mercados." data-en="Collaborative projects connecting brands, talent and communities across markets.">Projetos colaborativos que ligam marcas, talentos e comunidades entre mercados.</p>
+      </article>
+    </div>
   </div>
 </section>
 
-<section class="contact" id="contactos">
-  <span class="eyebrow" data-pt="O próximo passo começa aqui" data-en="Your next project starts here">O próximo passo começa aqui</span>
-  <h2 data-pt="Vamos criar algo<br>memorável?" data-en="Shall we create<br>something memorable?">Vamos criar algo<br>memorável?</h2>
-  <p data-pt="Conta-nos a tua ideia. Estamos disponíveis para conversar sobre o teu próximo evento ou projeto."
-  data-en="Tell us your idea. We'd love to discuss your next event or project.">Conta-nos a tua ideia. Estamos disponíveis para conversar sobre o teu próximo evento ou projeto.</p>
-  <a class="button" href="mailto:info@pspentertainment.online">INFO@PSPENTERTAINMENT.ONLINE ↗</a>
+<section class="section" id="sobre">
+  <div class="wrap about-grid">
+    <div class="about-visual" role="img" aria-label="Ambiente de evento elegante"></div>
+
+    <div class="about-copy">
+      <div class="kicker" data-pt="A nossa identidade" data-en="Our identity">A nossa identidade</div>
+      <h2 data-pt="Criatividade que aproxima mundos." data-en="Creativity that brings worlds together.">Criatividade que aproxima mundos.</h2>
+      <p data-pt="A PSP Entertainment nasce da vontade de transformar ideias em projetos concretos, criando experiências relevantes entre Cabo Verde e Portugal. Trabalhamos com visão, rigor e uma abordagem próxima, adaptando cada projeto ao seu público e objetivo." data-en="PSP Entertainment was born from the ambition to turn ideas into tangible projects and create meaningful experiences between Cape Verde and Portugal. We work with vision, care and a collaborative approach, tailoring every project to its audience and goals.">
+        A PSP Entertainment nasce da vontade de transformar ideias em projetos concretos, criando experiências relevantes entre Cabo Verde e Portugal. Trabalhamos com visão, rigor e uma abordagem próxima, adaptando cada projeto ao seu público e objetivo.
+      </p>
+
+      <div class="values">
+        <div class="value"><b data-pt="Missão" data-en="Mission">Missão</b><span data-pt="Criar experiências memoráveis." data-en="Create memorable experiences.">Criar experiências memoráveis.</span></div>
+        <div class="value"><b data-pt="Visão" data-en="Vision">Visão</b><span data-pt="Ligar culturas e oportunidades." data-en="Connect cultures and opportunities.">Ligar culturas e oportunidades.</span></div>
+        <div class="value"><b data-pt="Valores" data-en="Values">Valores</b><span data-pt="Criatividade, confiança e rigor." data-en="Creativity, trust and excellence.">Criatividade, confiança e rigor.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="imagens">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="kicker" data-pt="Galeria" data-en="Gallery">Galeria</div>
+        <h2 data-pt="Momentos que ficam." data-en="Moments that stay with you.">Momentos que ficam.</h2>
+      </div>
+      <p data-pt="Uma seleção visual de ambientes, encontros e experiências que inspiram o nosso trabalho." data-en="A visual selection of settings, gatherings and experiences that inspire our work.">Uma seleção visual de ambientes, encontros e experiências que inspiram o nosso trabalho.</p>
+    </div>
+
+    <div class="gallery">
+      <figure class="shot">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1200&q=85" alt="Evento elegante">
+        <figcaption data-pt="Eventos com identidade" data-en="Events with identity">Eventos com identidade</figcaption>
+      </figure>
+
+      <figure class="shot">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=900&q=85" alt="Mesa decorada">
+        <figcaption data-pt="Decoração e detalhe" data-en="Decoration & detail">Decoração e detalhe</figcaption>
+      </figure>
+
+      <figure class="shot">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=900&q=85" alt="Público num evento">
+        <figcaption data-pt="Experiências ao vivo" data-en="Live experiences">Experiências ao vivo</figcaption>
+      </figure>
+
+      <figure class="shot">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=900&q=85" alt="Concerto e luzes">
+        <figcaption data-pt="Produção e energia" data-en="Production & energy">Produção e energia</figcaption>
+      </figure>
+
+      <figure class="shot">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=900&q=85" alt="Ambiente de celebração">
+        <figcaption data-pt="Momentos especiais" data-en="Special moments">Momentos especiais</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="equipa">
+  <div class="wrap">
+    <div class="team-callout">
+      <div>
+        <div class="kicker" data-pt="Equipa PSP" data-en="PSP Team">Equipa PSP</div>
+        <h2 data-pt="Pessoas que dão vida às ideias." data-en="People who bring ideas to life.">Pessoas que dão vida às ideias.</h2>
+        <p data-pt="A nossa equipa reúne criatividade, organização e vontade de construir projetos com significado. Esta área pode ser personalizada com os nomes, fotografias e funções dos membros." data-en="Our team brings together creativity, organisation and the drive to build meaningful projects. This area can be personalised with team members' names, photos and roles.">
+          A nossa equipa reúne criatividade, organização e vontade de construir projetos com significado. Esta área pode ser personalizada com os nomes, fotografias e funções dos membros.
+        </p>
+      </div>
+      <a class="btn" href="#contacto" data-pt="Colaborar connosco ↗" data-en="Work with us ↗">Colaborar connosco ↗</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contacto">
+  <div class="wrap contact-grid">
+    <div class="contact-info">
+      <div class="kicker" data-pt="Vamos conversar" data-en="Let's talk">Vamos conversar</div>
+      <h2 data-pt="Tem uma ideia?<br>Vamos realizá-la." data-en="Have an idea?<br>Let's make it happen.">Tem uma ideia?<br>Vamos realizá-la.</h2>
+      <p data-pt="Conte-nos o que tem em mente. Estamos disponíveis para conversar sobre eventos, parcerias e novos projetos." data-en="Tell us what you have in mind. We are available to discuss events, partnerships and new projects.">
+        Conte-nos o que tem em mente. Estamos disponíveis para conversar sobre eventos, parcerias e novos projetos.
+      </p>
+
+      <div class="contact-line">
+        <small>Email</small>
+        <a href="mailto:psp.entretainment@gmail.com">psp.entretainment@gmail.com</a>
+      </div>
+
+      <div class="contact-line">
+        <small>Website</small>
+        <a href="https://pspentertainment.online">pspentertainment.online</a>
+      </div>
+
+      <div class="contact-line">
+        <small>Instagram</small>
+        <a href="https://www.instagram.com/psp.entertainment/" target="_blank" rel="noopener">@psp.entertainment ↗</a>
+      </div>
+    </div>
+
+    <form class="form" id="contactform">
+      <label>Nome
+        <input name="name" required autocomplete="name">
+      </label>
+
+      <label>Email
+        <input type="email" name="email" required autocomplete="email">
+      </label>
+
+      <label class="full">Assunto
+        <input name="subject" required>
+      </label>
+
+      <label class="full">Mensagem
+        <textarea name="message" required></textarea>
+      </label>
+
+      <button class="btn primary full" type="submit">Preparar email ↗</button>
+
+      <p class="form-note">O formulário abre a aplicação de email do visitante. Não guarda mensagens num servidor.</p>
+    </form>
+  </div>
 </section>
 </main>
 
-<footer>
-  <span>© <span id="year"></span> PSP Entertainment</span>
-  <span data-pt="Eventos e experiências com identidade." data-en="Events and experiences with identity.">Eventos e experiências com identidade.</span>
+<footer id="contactos">
+  <div class="wrap">
+    <div class="foot-top">
+      <a class="brand" href="#inicio">
+        <img src="./4549.webp" alt="PSP Entertainment" style="width:65px;height:55px;object-fit:contain">
+        <span class="brandname">ENTERTAINMENT</span>
+      </a>
+
+      <div class="foot-tag">CRIAMOS EXPERIÊNCIAS. LIGAMOS MARCAS.</div>
+
+      <div class="social">
+        <a href="https://www.instagram.com/psp.entertainment/" target="_blank" rel="noopener">Instagram ↗</a>
+        <a href="mailto:psp.entretainment@gmail.com">Email ↗</a>
+        <a href="#contacto">Pedir contacto</a>
+      </div>
+    </div>
+
+    <div class="copyright">
+      <span>© <span id="year"></span> PSP ENTERTAINMENT</span>
+      <span>Entre Cabo Verde e Portugal · Todos os direitos reservados</span>
+    </div>
+  </div>
 </footer>
 
 <script>
-const langButton = document.getElementById('lang');
-let language = 'pt';
+const languageButton = document.getElementById("language");
+let currentLanguage = "pt";
 
-langButton.addEventListener('click', () => {
-  language = language === 'pt' ? 'en' : 'pt';
-  document.documentElement.lang = language;
-  document.querySelectorAll('[data-pt]').forEach(element => {
-    const value = element.dataset[language];
-    if (value) element.innerHTML = value;
+languageButton.addEventListener("click", function () {
+  currentLanguage = currentLanguage === "pt" ? "en" : "pt";
+  document.documentElement.lang = currentLanguage;
+
+  document.querySelectorAll("[data-pt][data-en]").forEach(function (element) {
+    element.innerHTML = element.dataset[currentLanguage];
   });
-  langButton.textContent = language === 'pt' ? 'EN' : 'PT';
+
+  languageButton.textContent = currentLanguage === "pt" ? "EN" : "PT";
 });
-document.getElementById('year').textContent = new Date().getFullYear();
+
+document.getElementById("theme").addEventListener("click", function () {
+  document.body.classList.toggle("light");
+});
+
+document.getElementById("menubtn").addEventListener("click", function () {
+  document.getElementById("navlinks").classList.toggle("open");
+});
+
+document.querySelectorAll("#navlinks a").forEach(function (link) {
+  link.addEventListener("click", function () {
+    document.getElementById("navlinks").classList.remove("open");
+  });
+});
+
+document.getElementById("year").textContent = new Date().getFullYear();
+
+document.getElementById("contactform").addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  const formData = new FormData(event.currentTarget);
+  const subject = encodeURIComponent(formData.get("subject"));
+  const body = encodeURIComponent(
+    "Nome: " + formData.get("name") +
+    "\nEmail: " + formData.get("email") +
+    "\n\n" + formData.get("message")
+  );
+
+  window.location.href =
+    "mailto:psp.entretainment@gmail.com?subject=" + subject + "&body=" + body;
+});
 </script>
 </body>
 </html>
