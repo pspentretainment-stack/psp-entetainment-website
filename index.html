@@ -555,7 +555,7 @@ body.light .form input, body.light .form textarea {
     </nav>
 
     <div style="display:flex;gap:8px">
-      <button class="lang" id="theme" aria-label="Alternar tema">◐</button>
+  
       <button class="lang" id="language">EN</button>
       <button class="menu-btn" id="menubtn" aria-label="Abrir menu">☰</button>
     </div>
@@ -625,17 +625,10 @@ body.light .form input, body.light .form textarea {
     <div class="about-visual" role="img" aria-label="Ambiente de evento elegante"></div>
 
     <div class="about-copy">
-      <div class="kicker" data-pt="A nossa identidade" data-en="Our identity">A Equipa</div>
-      <h2 data-pt="Criatividade que aproxima mundos." data-en="Creativity that brings worlds together.">Criatividade que aproxima pessoas.</h2>
-      <p data-pt="A PSP Entertainment nasce da vontade de transformar ideias em projetos concretos, criando experiências relevantes em Cabo Verde. Trabalhamos com visão, rigor e uma abordagem próxima, adaptando cada projeto ao seu público e objetivo." data-en="PSP Entertainment was born from the ambition to turn ideas into tangible projects and create meaningful experiences between Cape Verde and Portugal. We work with vision, care and a collaborative approach, tailoring every project to its audience and goals.">
-        A PSP Entertainment nasce da vontade de transformar ideias em projetos concretos, criando experiências relevantes em Cabo Verde. Trabalhamos com visão, rigor e uma abordagem próxima, adaptando cada projeto ao seu público e objetivo.
-      </p>
+      <div class="kicker" data-pt="A nossa identidade" data-en="Our identity" style="font-size: clamp(42px, 7vw, 100px); font-weight: 800; color: #d4af37; letter-spacing: 3px;">A EQUIPA</div>
+     
 
-      <div class="values">
-        <div class="value"><b data-pt="Missão" data-en="Mission">Missão</b><span data-pt="Criar experiências memoráveis." data-en="Create memorable experiences.">Criar experiências memoráveis.</span></div>
-        <div class="value"><b data-pt="Visão" data-en="Vision">Visão</b><span data-pt="Ligar culturas e oportunidades." data-en="Connect cultures and opportunities.">Ligar culturas e oportunidades.</span></div>
-        <div class="value"><b data-pt="Valores" data-en="Values">Valores</b><span data-pt="Criatividade, confiança e rigor." data-en="Creativity, trust and excellence.">Criatividade, confiança e rigor.</span></div>
-      </div>
+      
     </div>
   </div>
 </section>
@@ -783,9 +776,7 @@ languageButton.addEventListener("click", function () {
   languageButton.textContent = currentLanguage === "pt" ? "EN" : "PT";
 });
 
-document.getElementById("theme").addEventListener("click", function () {
-  document.body.classList.toggle("light");
-});
+
 
 document.getElementById("menubtn").addEventListener("click", function () {
   document.getElementById("navlinks").classList.toggle("open");
