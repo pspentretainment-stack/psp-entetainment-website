@@ -534,7 +534,63 @@ body.light .form input, body.light .form textarea {
   text-align: center;
 }
 
+
+/* PSP ENTERTAINMENT — SUBTLE BLUE & GOLD SIDELIGHTS */
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  pointer-events: none;
+  z-index: 999;
+  opacity: 0.28;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    #087CFF 25%,
+    #D4AF37 50%,
+    #087CFF 75%,
+    transparent 100%
+  );
+  background-size: 100% 200%;
+  animation: pspBlueGold 12s ease-in-out infinite alternate;
+}
+
+body::before {
+  left: 0;
+  box-shadow: 0 0 10px rgba(8, 124, 255, 0.22);
+}
+
+body::after {
+  right: 0;
+  box-shadow: 0 0 10px rgba(8, 124, 255, 0.22);
+  animation-delay: -6s;
+}
+
+@keyframes pspBlueGold {
+  from {
+    background-position: 0 0;
+    opacity: 0.20;
+  }
+  to {
+    background-position: 0 100%;
+    opacity: 0.38;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::before,
+  body::after {
+    animation: none;
+  }
+}
+
 </style>
+  
+
 </head>
 
 <body>
