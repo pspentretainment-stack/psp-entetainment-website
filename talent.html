@@ -1,1 +1,249 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080b12">
+  <title>Our Talent | PSP Entertainment</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: #080b12;
+      color: #fff;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 6%;
+      border-bottom: 1px solid #252b38;
+    }
+
+    .brand {
+      font-size: 17px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    .brand span { color: #c9a96e; }
+
+    header a {
+      color: white;
+      text-decoration: none;
+      font-size: 13px;
+      letter-spacing: 1px;
+    }
+
+    .hero {
+      padding: 90px 7% 55px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      color: #c9a96e;
+      letter-spacing: 4px;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(42px, 7vw, 78px);
+      margin: 20px 0;
+      letter-spacing: -2px;
+    }
+
+    .intro {
+      max-width: 600px;
+      margin: auto;
+      color: #aeb5c3;
+      line-height: 1.8;
+      font-size: 15px;
+    }
+
+    .talent {
+      padding: 20px 7% 90px;
+    }
+
+    .categories {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .categories button {
+      padding: 12px 23px;
+      background: transparent;
+      border: 1px solid #353c49;
+      color: white;
+      cursor: pointer;
+      letter-spacing: 1px;
+    }
+
+    .categories button.active,
+    .categories button:hover {
+      border-color: #c9a96e;
+      color: #c9a96e;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      min-height: 270px;
+      border: 1px solid #292f3c;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      background: linear-gradient(145deg, #151c2a, #0b0e15);
+      transition: border-color .25s, transform .25s;
+    }
+
+    .card:hover {
+      border-color: #c9a96e;
+      transform: translateY(-4px);
+    }
+
+    .number {
+      color: #c9a96e;
+      font-size: 12px;
+      letter-spacing: 2px;
+      margin-bottom: auto;
+    }
+
+    .card h2 {
+      font-size: 26px;
+      margin: 30px 0 10px;
+    }
+
+    .card p {
+      color: #aeb5c3;
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    .contact {
+      text-align: center;
+      padding: 65px 20px;
+      background: #101521;
+    }
+
+    .contact h2 { font-size: 30px; }
+
+    .contact a {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 15px 25px;
+      background: #c9a96e;
+      color: #080b12;
+      text-decoration: none;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    footer {
+      padding: 25px;
+      text-align: center;
+      color: #777f8e;
+      font-size: 12px;
+    }
+
+    @media (max-width: 750px) {
+      .grid { grid-template-columns: 1fr; }
+      .hero { padding-top: 65px; }
+      .card { min-height: 220px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand">PSP <span>ENTERTAINMENT</span></div>
+    <a href="index.html">← BACK TO HOME</a>
+  </header>
+
+  <section class="hero">
+    <div class="eyebrow">Talent & Artist Management</div>
+    <h1>OUR TALENT</h1>
+    <p class="intro">
+      Discover our artists, DJs and performers.
+      We connect talent with opportunities to create
+      unforgettable experiences and extraordinary events.
+    </p>
+  </section>
+
+  <section class="talent">
+    <div class="categories">
+      <button class="active" data-filter="all">ALL TALENT</button>
+      <button data-filter="artist">ARTISTS</button>
+      <button data-filter="dj">DJs</button>
+      <button data-filter="other">OTHERS</button>
+    </div>
+
+    <div class="grid">
+      <article class="card" data-category="artist">
+        <div class="number">01 / ARTIST</div>
+        <h2>Artist Name</h2>
+        <p>Artist profile coming soon.</p>
+      </article>
+
+      <article class="card" data-category="dj">
+        <div class="number">02 / DJ</div>
+        <h2>DJ Name</h2>
+        <p>DJ profile coming soon.</p>
+      </article>
+
+      <article class="card" data-category="other">
+        <div class="number">03 / PERFORMER</div>
+        <h2>Performer Name</h2>
+        <p>Performer profile coming soon.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="contact">
+    <h2>BOOK OUR TALENT</h2>
+    <p>Looking for the right talent for your next event?</p>
+    <a href="mailto:psp.entretainment@gmail.com">
+      CONTACT US
+    </a>
+  </section>
+
+  <footer>
+    © 2026 PSP Entertainment. All rights reserved.
+  </footer>
+
+  <script>
+    const buttons = document.querySelectorAll("[data-filter]");
+    const cards = document.querySelectorAll("[data-category]");
+
+    buttons.forEach(button => {
+      button.addEventListener("click", () => {
+        buttons.forEach(item => item.classList.remove("active"));
+        button.classList.add("active");
+
+        const filter = button.dataset.filter;
+
+        cards.forEach(card => {
+          card.style.display =
+            filter === "all" || card.dataset.category === filter
+              ? "flex"
+              : "none";
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
+
