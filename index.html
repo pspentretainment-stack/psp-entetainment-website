@@ -739,18 +739,125 @@ body::after {
   </div>
 </section>
 
-<section class="section" id="equipa">
+
+<section class="section" id="stories">
   <div class="wrap">
     <div class="team-callout">
       <div>
-        <div class="kicker" data-pt="PSP" data-en="PSP Team">PSP</div>
-        <h2 data-pt="Pessoas que dão vida às ideias." data-en="People who bring ideas to life.">Pessoas que dão vida às ideias.</h2>
-       
+        <div class="kicker">PSP STORIES</div>
+        <h2>Histórias que marcam.</h2>
+        <p>Os melhores momentos, eventos e bastidores da PSP Entertainment.</p>
       </div>
-      <a class="btn" href="#contacto" data-pt="Colaborar connosco ↗" data-en="Work with us ↗">Colaborar connosco ↗</a>
+    </div>
+
+    <div class="stories-container">
+      <label class="story-card add-story">
+        <input type="file" accept="image/*,video/*" multiple hidden
+          onchange="addPSPStories(this.files)">
+        <span class="story-plus">+</span>
+        <span>Adicionar história</span>
+      </label>
+
+      <div id="psp-stories-list"></div>
     </div>
   </div>
 </section>
+
+<style>
+.stories-container {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  padding: 12px 2px 20px;
+}
+.add-story, .psp-story-card {
+  position: relative;
+  flex: 0 0 145px;
+  height: 230px;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #171717;
+  border: 1px solid rgba(212,175,55,.55);
+  color: white;
+  cursor: pointer;
+}
+.add-story {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  padding: 15px;
+  box-sizing: border-box;
+  text-align: center;
+}
+.story-plus {
+  font-size: 30px;
+  color: #d4af37;
+}
+#psp-stories-list {
+  display: flex;
+  gap: 14px;
+}
+.psp-story-card img,
+.psp-story-card video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.psp-story-card button {
+  position: absolute;
+  bottom: 10px;
+  left: 8px;
+  right: 8px;
+  padding: 8px;
+  background: #111;
+  color: #d4af37;
+  border: 1px solid #d4af37;
+  border-radius: 8px;
+}
+</style>
+
+<script>
+function addPSPStories(files) {
+  const list = document.getElementById('psp-stories-list');
+
+  Array.from(files).forEach(file => {
+    const url = URL.createObjectURL(file);
+    const card = document.createElement('div');
+    card.className = 'psp-story-card';
+
+    const media = document.createElement(
+      file.type.startsWith('video/') ? 'video' : 'img'
+    );
+    media.src = url;
+
+    if (media.tagName === 'VIDEO') {
+      media.controls = true;
+      media.playsInline = true;
+    }
+
+    const share = document.createElement('button');
+    share.textContent = 'Partilhar';
+    share.onclick = async () => {
+      if (navigator.share) {
+        try {
+          await navigator.share({
+            files: [file],
+            title: 'PSP Entertainment Stories'
+          });
+        } catch (e) {}
+      } else {
+        alert('O teu navegador não suporta partilha direta.');
+      }
+    };
+
+    card.append(media, share);
+    list.prepend(card);
+  });
+}
+</script>
+
 
 <section class="section" id="contacto">
   <div class="wrap contact-grid">
