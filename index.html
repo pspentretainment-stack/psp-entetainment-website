@@ -741,12 +741,7 @@ body::after {
 
    
 <div class="stories-container">
-  <label class="story-card add-story">
-    <input type="file" accept="image/*,video/*" multiple hidden
-      onchange="addPSPStories(this.files)">
-    <span class="story-plus">+</span>
-    <span>Adicionar história</span>
-  </label>
+
 
   <div class="psp-story-card">
     <img
@@ -812,7 +807,46 @@ body::after {
   border: 1px solid #d4af37;
   border-radius: 8px;
 }
+  
+/* Janela de visualização das histórias */
+.story-viewer {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.94);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+}
+
+.story-viewer.active {
+  display: flex;
+}
+
+.story-viewer img,
+.story-viewer video {
+  width: 87vw;
+  height: 87vh;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+.story-viewer-close {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  color: white;
+  background: transparent;
+  border: 0;
+  font-size: 36px;
+  cursor: pointer;
+}
+
 </style>
+
+
 
 <script>
 function addPSPStories(files) {
