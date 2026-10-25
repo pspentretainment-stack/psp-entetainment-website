@@ -853,6 +853,7 @@ body::after {
 
 <script>
 function addPSPStories(files) {
+  alert('Função de histórias executada');
   const list = document.getElementById('psp-stories-list');
 
   Array.from(files).forEach(file => {
@@ -868,6 +869,7 @@ function addPSPStories(files) {
 media.style.cursor = 'pointer';
 
 media.addEventListener('click', function () {
+  alert('Clique detetado!');
   alert('O clique na história funciona!');
   let viewer = document.querySelector('.story-viewer');
 
