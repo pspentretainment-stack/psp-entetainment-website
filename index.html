@@ -868,25 +868,13 @@ function addPSPStories(files) {
     
 media.style.cursor = 'pointer';
 
+
 media.addEventListener('click', function () {
-  alert('Clique detetado!');
-  alert('O clique na história funciona!');
   let viewer = document.querySelector('.story-viewer');
 
   if (!viewer) {
     viewer = document.createElement('div');
     viewer.className = 'story-viewer';
-
-    const close = document.createElement('button');
-    close.className = 'story-viewer-close';
-    close.textContent = '×';
-
-    close.onclick = function () {
-      viewer.classList.remove('active');
-      viewer.innerHTML = '';
-    };
-
-    viewer.appendChild(close);
     document.body.appendChild(viewer);
   }
 
@@ -895,15 +883,13 @@ media.addEventListener('click', function () {
   const close = document.createElement('button');
   close.className = 'story-viewer-close';
   close.textContent = '×';
+
   close.onclick = function () {
     viewer.classList.remove('active');
     viewer.innerHTML = '';
   };
 
-  const enlarged = document.createElement(
-    media.tagName.toLowerCase()
-  );
-
+  const enlarged = document.createElement(media.tagName.toLowerCase());
   enlarged.src = url;
   enlarged.style.width = '87vw';
   enlarged.style.height = '87vh';
