@@ -869,7 +869,10 @@ function addPSPStories(files) {
 media.style.cursor = 'pointer';
 
 
-media.addEventListener('click', function () {
+
+media.addEventListener('click', function (event) {
+  event.stopPropagation();
+
   let viewer = document.querySelector('.story-viewer');
 
   if (!viewer) {
@@ -883,7 +886,6 @@ media.addEventListener('click', function () {
   const close = document.createElement('button');
   close.className = 'story-viewer-close';
   close.textContent = '×';
-
   close.onclick = function () {
     viewer.classList.remove('active');
     viewer.innerHTML = '';
@@ -894,7 +896,6 @@ media.addEventListener('click', function () {
   enlarged.style.width = '87vw';
   enlarged.style.height = '87vh';
   enlarged.style.objectFit = 'contain';
-  enlarged.style.borderRadius = '12px';
 
   if (media.tagName === 'VIDEO') {
     enlarged.controls = true;
@@ -905,6 +906,7 @@ media.addEventListener('click', function () {
   viewer.appendChild(enlarged);
   viewer.classList.add('active');
 });
+
 
 
     if (media.tagName === 'VIDEO') {
