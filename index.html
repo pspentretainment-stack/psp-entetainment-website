@@ -867,10 +867,11 @@ function addPSPStories(files) {
     media.src = url;
     
 media.style.cursor = 'pointer';
+media.style.pointerEvents = 'auto';
 
-
-
-media.addEventListener('click', function (event) {
+media.onclick = function () {
+  alert('O clique na foto está a funcionar!');
+};
   event.stopPropagation();
 
   let viewer = document.querySelector('.story-viewer');
