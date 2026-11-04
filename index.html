@@ -963,9 +963,7 @@ body::after {
     <div class="team-callout">
       <div>
         <div class="kicker">STORIES</div>
-        <button class="story-share-btn" onclick="sharePSPSite()">
-  ↗ PARTILHAR
-</button>
+      
        
       </div>
     </div>
@@ -1077,7 +1075,20 @@ body::after {
 .story-viewer.active {
     display: flex !important;
 }
-
+.story-individual-share {
+  position: absolute;
+  bottom: 12px;
+  left: 10px;
+  right: 10px;
+  padding: 11px;
+  background: rgba(8,8,8,.85);
+  color: var(--gold-light);
+  border: 1px solid var(--gold);
+  font-size: 11px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  z-index: 5;
+}
 </style>
 
 
@@ -1189,6 +1200,47 @@ function addPSPStories(files) {
     }
   }
 } 
+  async function sharePSPStory(card) {
+  const media = card.querySelector('img, video');
+  if (!media) return;
+
+  try {
+    const response = await fetch(media.src);
+    const blob = await response.blob();
+
+    const extension = blob.type.includes('video') ? 'mp4' : 'jpg';
+    const file = new File(
+      [blob],
+      `PSP-Story.${extension}`,
+      { type: blob.type }
+    );
+
+    if (navigator.canShare && navigator.canShare({ files: [file] })) {
+      await navigator.share({
+        files: [file],
+        title: 'PSP Entertainment'
+      });
+    } else {
+      alert('A partilha direta deste ficheiro não é suportada neste dispositivo.');
+    }
+  } catch (error) {
+    alert('Não foi possível partilhar esta história.');
+  }
+}
+
+document.querySelectorAll('.psp-story-card').forEach(card => {
+  const button = document.createElement('button');
+  button.className = 'story-individual-share';
+  button.textContent = '↗ Partilhar';
+
+  button.onclick = event => {
+    event.stopPropagation();
+    sharePSPStory(card);
+  };
+
+  card.appendChild(button);
+});
+  
 </script>
 
 
