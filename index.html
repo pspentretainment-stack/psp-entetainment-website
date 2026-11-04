@@ -598,6 +598,133 @@ body::after {
   }
 }
 
+/* PSP ENTERTAINMENT - EVENT CARDS */
+
+.event-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.event-card {
+  background: linear-gradient(145deg, #15130f, #090909);
+  border: 1px solid rgba(198,166,106,.35);
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  transition: .3s ease;
+}
+
+.event-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-5px);
+}
+
+.event-poster {
+  min-height: 230px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background:
+    radial-gradient(ellipse, rgba(198,166,106,.15), transparent 65%),
+    #0b0b0b;
+  border-bottom: 1px solid var(--line);
+  color: var(--gold-light);
+}
+
+.event-poster span {
+  font-family: Montserrat, sans-serif;
+  font-size: 55px;
+  font-weight: 800;
+  letter-spacing: 5px;
+}
+
+.event-poster small {
+  font-size: 9px;
+  letter-spacing: 4px;
+}
+
+.event-content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.event-content h3 {
+  font-size: 20px;
+  margin: 15px 0;
+}
+
+.event-content p {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.event-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: 20px;
+}
+
+.event-buttons .btn {
+  text-align: center;
+  flex: 1 1 120px;
+  padding: 12px 10px;
+}
+
+@media (max-width: 850px) {
+  .event-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .event-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .event-poster {
+    min-height: 200px;
+  }
+
+  .event-content {
+    padding: 20px;
+  }
+}
+  
+.story-progress {
+  position: absolute;
+  top: 12px;
+  left: 5%;
+  width: 90%;
+  height: 3px;
+  background: rgba(255,255,255,.3);
+  z-index: 5;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.story-progress-fill {
+  height: 100%;
+  width: 0;
+  background: #d4af37;
+}
+
+@keyframes storyTimer {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+.story-viewer-close {
+  z-index: 10;
+}
+
+
 </style>
   
 
@@ -692,42 +819,113 @@ body::after {
   </div>
 </section>
 
+
 <section class="section" id="imagens">
   <div class="wrap">
     <div class="section-head">
       <div>
-        <div class="kicker" data-pt="Galeria" data-en="Gallery">Galeria</div>
-        <h2 data-pt="Agenda de Eventos." data-en="00/00/0000">Agenda de Eventos.</h2>
-     
+        <div class="kicker"
+             data-pt="Eventos"
+             data-en="Events">Eventos</div>
+        <h2 data-pt="Agenda de Eventos."
+            data-en="Event Calendar.">Agenda de Eventos.</h2>
+      </div>
+      <p data-pt="Descubra os próximos eventos e experiências da PSP Entertainment."
+         data-en="Discover upcoming PSP Entertainment events and experiences.">
+        Descubra os próximos eventos e experiências da PSP Entertainment.
+      </p>
+    </div>
 
-    <div class="gallery">
-      <figure class="shot">
-        <img loading="lazy" src="Black & White Minimalist Business Logo_20261018_195821_0000.png" alt="Evento elegante">
-        <figcaption data-pt="00/00/0000" data-en="00/00/0000">00/00/0000</figcaption>
-      </figure>
+    <div class="event-grid">
 
-      <figure class="shot">
-        <img loading="lazy" src="Black & White Minimalist Business Logo_20261018_195821_0000.png" alt="Mesa decorada">
-        <figcaption data-pt="00/00/0000" data-en="00/00/0000">00/00/0000</figcaption>
-      </figure>
+      <article class="event-card">
+        <div class="event-poster">
+          <span>PSP</span>
+          <small>EVENT POSTER</small>
+        </div>
+        <div class="event-content">
+          <div class="kicker">01 / UPCOMING EVENT</div>
+          <h3 data-pt="Próximo evento"
+              data-en="Upcoming event">Próximo evento</h3>
+          <p data-pt="Data, hora e localização a anunciar."
+             data-en="Date, time and location to be announced.">
+            Data, hora e localização a anunciar.
+          </p>
+          <p data-pt="Informações do evento serão divulgadas brevemente."
+             data-en="Event information coming soon.">
+            Informações do evento serão divulgadas brevemente.
+          </p>
+          <div class="event-buttons">
+            <a href="#contacto" class="btn primary"
+               data-pt="INSCREVER-SE"
+               data-en="GET TICKETS">INSCREVER-SE</a>
+            <a href="#contacto" class="btn"
+               data-pt="VER CARTAZ"
+               data-en="VIEW POSTER">VER CARTAZ</a>
+          </div>
+        </div>
+      </article>
 
-      <figure class="shot">
-        <img loading="lazy" src="Black & White Minimalist Business Logo_20261018_195821_0000.png" alt="Público num evento">
-        <figcaption data-pt="00/00/0000" data-en="00/00/0000">00/00/0000</figcaption>
-      </figure>
+      <article class="event-card">
+        <div class="event-poster">
+          <span>PSP</span>
+          <small>EVENT POSTER</small>
+        </div>
+        <div class="event-content">
+          <div class="kicker">02 / UPCOMING EVENT</div>
+          <h3 data-pt="Próximo evento"
+              data-en="Upcoming event">Próximo evento</h3>
+          <p data-pt="Data, hora e localização a anunciar."
+             data-en="Date, time and location to be announced.">
+            Data, hora e localização a anunciar.
+          </p>
+          <p data-pt="Informações do evento serão divulgadas brevemente."
+             data-en="Event information coming soon.">
+            Informações do evento serão divulgadas brevemente.
+          </p>
+          <div class="event-buttons">
+            <a href="#contacto" class="btn primary"
+               data-pt="INSCREVER-SE"
+               data-en="GET TICKETS">INSCREVER-SE</a>
+            <a href="#contacto" class="btn"
+               data-pt="VER CARTAZ"
+               data-en="VIEW POSTER">VER CARTAZ</a>
+          </div>
+        </div>
+      </article>
 
-      <figure class="shot">
-        <img loading="lazy" src="Black & White Minimalist Business Logo_20261018_195821_0000.png" alt="Concerto e luzes">
-        <figcaption data-pt="00/00/0000" data-en="00/00/0000">00/00/0000</figcaption>
-      </figure>
+      <article class="event-card">
+        <div class="event-poster">
+          <span>PSP</span>
+          <small>EVENT POSTER</small>
+        </div>
+        <div class="event-content">
+          <div class="kicker">03 / UPCOMING EVENT</div>
+          <h3 data-pt="Próximo evento"
+              data-en="Upcoming event">Próximo evento</h3>
+          <p data-pt="Data, hora e localização a anunciar."
+             data-en="Date, time and location to be announced.">
+            Data, hora e localização a anunciar.
+          </p>
+          <p data-pt="Informações do evento serão divulgadas brevemente."
+             data-en="Event information coming soon.">
+            Informações do evento serão divulgadas brevemente.
+          </p>
+          <div class="event-buttons">
+            <a href="#contacto" class="btn primary"
+               data-pt="INSCREVER-SE"
+               data-en="GET TICKETS">INSCREVER-SE</a>
+            <a href="#contacto" class="btn"
+               data-pt="VER CARTAZ"
+               data-en="VIEW POSTER">VER CARTAZ</a>
+          </div>
+        </div>
+      </article>
 
-      <figure class="shot">
-        <img loading="lazy" src="Black & White Minimalist Business Logo_20261018_195821_0000.png" alt="Ambiente de celebração">
-        <figcaption data-pt="00/00/0000" data-en="00/00/0000">00/00/0000</figcaption>
-      </figure>
     </div>
   </div>
 </section>
+
 
 
 <section class="section" id="stories">
@@ -852,28 +1050,8 @@ body::after {
 
 
 <script>
-function addPSPStories(files) {
-  alert('Função de histórias executada');
-  const list = document.getElementById('psp-stories-list');
 
-  Array.from(files).forEach(file => {
-    const url = URL.createObjectURL(file);
-    const card = document.createElement('div');
-    card.className = 'psp-story-card';
-
-    const media = document.createElement(
-      file.type.startsWith('video/') ? 'video' : 'img'
-    );
-    media.src = url;
-    
-media.style.cursor = 'pointer';
-media.style.pointerEvents = 'auto';
-
-media.onclick = function () {
-  alert('O clique na foto está a funcionar!');
-};
-  event.stopPropagation();
-
+function openPSPStory(media) {
   let viewer = document.querySelector('.story-viewer');
 
   if (!viewer) {
@@ -882,58 +1060,82 @@ media.onclick = function () {
     document.body.appendChild(viewer);
   }
 
-  viewer.innerHTML = '';
+  viewer.innerHTML = `
+    <div class="story-progress">
+      <div class="story-progress-fill"></div>
+    </div>
+    <button class="story-viewer-close" aria-label="Fechar">×</button>
+  `;
 
-  const close = document.createElement('button');
-  close.className = 'story-viewer-close';
-  close.textContent = '×';
-  close.onclick = function () {
-    viewer.classList.remove('active');
-    viewer.innerHTML = '';
-  };
+  const enlarged = media.cloneNode(true);
+  enlarged.removeAttribute('style');
+  enlarged.controls = media.tagName === 'VIDEO';
+  enlarged.playsInline = true;
 
-  const enlarged = document.createElement(media.tagName.toLowerCase());
-  enlarged.src = url;
-  enlarged.style.width = '87vw';
-  enlarged.style.height = '87vh';
-  enlarged.style.objectFit = 'contain';
-
-  if (media.tagName === 'VIDEO') {
-    enlarged.controls = true;
-    enlarged.playsInline = true;
-  }
-
-  viewer.appendChild(close);
   viewer.appendChild(enlarged);
   viewer.classList.add('active');
-});
 
+  const progress = viewer.querySelector('.story-progress-fill');
+  progress.style.animation = 'storyTimer 15s linear forwards';
 
+  const close = () => {
+    viewer.classList.remove('active');
+    if (enlarged.tagName === 'VIDEO') {
+      enlarged.pause();
+    }
+    viewer.innerHTML = '';
+    clearTimeout(timer);
+  };
+
+  viewer.querySelector('.story-viewer-close').onclick = close;
+
+  if (enlarged.tagName === 'VIDEO') {
+    enlarged.play().catch(() => {});
+  }
+
+  const timer = setTimeout(close, 15000);
+}
+
+// Abrir Stories existentes e futuras
+document.querySelector('.stories-container')
+  ?.addEventListener('click', function(event) {
+    if (event.target.closest('button')) return;
+
+    const card = event.target.closest('.psp-story-card');
+    if (!card) return;
+
+    const media = card.querySelector('img, video');
+    if (media) openPSPStory(media);
+  });
+
+// Adicionar novas Stories
+function addPSPStories(files) {
+  const container = document.querySelector('.stories-container');
+
+  Array.from(files).forEach(file => {
+    if (!file.type.startsWith('image/') &&
+        !file.type.startsWith('video/')) return;
+
+    const url = URL.createObjectURL(file);
+    const card = document.createElement('div');
+    card.className = 'psp-story-card';
+
+    const media = document.createElement(
+      file.type.startsWith('video/') ? 'video' : 'img'
+    );
+
+    media.src = url;
 
     if (media.tagName === 'VIDEO') {
-      media.controls = true;
+      media.muted = true;
       media.playsInline = true;
     }
 
-    const share = document.createElement('button');
-    share.textContent = 'Partilhar';
-    share.onclick = async () => {
-      if (navigator.share) {
-        try {
-          await navigator.share({
-            files: [file],
-            title: 'PSP Entertainment Stories'
-          });
-        } catch (e) {}
-      } else {
-        alert('O teu navegador não suporta partilha direta.');
-      }
-    };
-
-    card.append(media, share);
-    list.prepend(card);
+    card.appendChild(media);
+    container.prepend(card);
   });
 }
+
   
 </script>
 
