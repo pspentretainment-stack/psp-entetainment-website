@@ -739,6 +739,22 @@ body::after {
   flex: 0 0 min(85%, 360px);
   scroll-snap-align: start;
 }
+  .story-share-btn {
+  margin-top: 18px;
+  padding: 12px 24px;
+  background: transparent;
+  color: var(--gold-light);
+  border: 1px solid var(--gold);
+  font-size: 11px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: .3s ease;
+}
+
+.story-share-btn:hover {
+  background: var(--gold);
+  color: #080808;
+}
 </style>
   
 
@@ -855,10 +871,10 @@ body::after {
       <article class="event-card">
         <div class="event-poster">
           <span>PSP</span>
-          <small>EVENT POSTER</small>
+          <small>BREVEMENTE</small>
         </div>
         <div class="event-content">
-          <div class="kicker">01 / UPCOMING EVENT</div>
+         
           <h3 data-pt="Próximo evento"
               data-en="Upcoming event">Próximo evento</h3>
           <p data-pt="Data, hora e localização a anunciar."
@@ -871,8 +887,8 @@ body::after {
           </p>
           <div class="event-buttons">
             <a href="#contacto" class="btn primary"
-               data-pt="INSCREVER-SE"
-               data-en="GET TICKETS">INSCREVER-SE</a>
+               data-pt="COMPRAR BILHETE"
+               data-en="BUY TICKETS">COMPRAR BILHETE</a>
             <a href="#contacto" class="btn"
                data-pt="VER CARTAZ"
                data-en="VIEW POSTER">VER CARTAZ</a>
@@ -883,10 +899,10 @@ body::after {
       <article class="event-card">
         <div class="event-poster">
           <span>PSP</span>
-          <small>EVENT POSTER</small>
+          <small>BREVEMENTE</small>
         </div>
         <div class="event-content">
-          <div class="kicker">02 / UPCOMING EVENT</div>
+         
           <h3 data-pt="Próximo evento"
               data-en="Upcoming event">Próximo evento</h3>
           <p data-pt="Data, hora e localização a anunciar."
@@ -899,8 +915,8 @@ body::after {
           </p>
           <div class="event-buttons">
             <a href="#contacto" class="btn primary"
-               data-pt="INSCREVER-SE"
-               data-en="GET TICKETS">INSCREVER-SE</a>
+               data-pt="COMPRAR BILHETE"
+               data-en="BUY TICKETS">COMPRAR BILHETE</a>
             <a href="#contacto" class="btn"
                data-pt="VER CARTAZ"
                data-en="VIEW POSTER">VER CARTAZ</a>
@@ -909,12 +925,12 @@ body::after {
       </article>
 
       <article class="event-card">
-        <div class="event-poster">
+        <div class="BREVEMENTE">
           <span>PSP</span>
-          <small>EVENT POSTER</small>
+          <small>BREVEMENTE</small>
         </div>
         <div class="event-content">
-          <div class="kicker">03 / UPCOMING EVENT</div>
+          
           <h3 data-pt="Próximo evento"
               data-en="Upcoming event">Próximo evento</h3>
           <p data-pt="Data, hora e localização a anunciar."
@@ -927,8 +943,8 @@ body::after {
           </p>
           <div class="event-buttons">
             <a href="#contacto" class="btn primary"
-               data-pt="INSCREVER-SE"
-               data-en="GET TICKETS">INSCREVER-SE</a>
+               data-pt="COMPRAR BILHETE"
+               data-en="BUY TICKETS">COMPRAR BILHETE</a>
             <a href="#contacto" class="btn"
                data-pt="VER CARTAZ"
                data-en="VIEW POSTER">VER CARTAZ</a>
@@ -947,6 +963,9 @@ body::after {
     <div class="team-callout">
       <div>
         <div class="kicker">STORIES</div>
+        <button class="story-share-btn" onclick="sharePSPSite()">
+  ↗ PARTILHAR
+</button>
        
       </div>
     </div>
@@ -1150,7 +1169,26 @@ function addPSPStories(files) {
   });
 }
 
-  
+ async function sharePSPSite() {
+  const shareData = {
+    title: 'PSP Entertainment',
+    text: 'Descobre a PSP Entertainment!',
+    url: 'https://pspentertainment.online'
+  };
+
+  try {
+    if (navigator.share) {
+      await navigator.share(shareData);
+    } else {
+      await navigator.clipboard.writeText(shareData.url);
+      alert('Link copiado! Já podes partilhar.');
+    }
+  } catch (error) {
+    if (error.name !== 'AbortError') {
+      alert('Não foi possível partilhar.');
+    }
+  }
+} 
 </script>
 
 
