@@ -724,7 +724,21 @@ body::after {
   z-index: 10;
 }
 
+/* Eventos com deslize horizontal */
+.event-grid {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 4px 2px 18px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
 
+.event-card {
+  flex: 0 0 min(85%, 360px);
+  scroll-snap-align: start;
+}
 </style>
   
 
