@@ -1117,30 +1117,34 @@ body::after {
 }
   /* PSP - AGENCIAMENTO COM DESLIZE HORIZONTAL */
 
-.services {
+/* PSP - AGENCIAMENTO HORIZONTAL */
+
+#servicos .services {
   display: flex !important;
-  flex-wrap: nowrap;
-  gap: 16px;
-  overflow-x: auto;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  gap: 18px;
+  width: 100%;
+  overflow-x: auto !important;
   overflow-y: hidden;
-  padding: 5px 2px 20px;
+  padding: 10px 4px 22px;
   scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
 }
 
-.service {
-  flex: 0 0 min(85%, 340px);
+#servicos .service {
+  flex: 0 0 82% !important;
+  max-width: 420px;
   min-width: 0;
   scroll-snap-align: start;
-  min-height: 235px;
 }
 
-.services::-webkit-scrollbar {
+#servicos .services::-webkit-scrollbar {
   height: 5px;
 }
 
-.services::-webkit-scrollbar-thumb {
+#servicos .services::-webkit-scrollbar-thumb {
   background: #c6a66a;
   border-radius: 10px;
 }
