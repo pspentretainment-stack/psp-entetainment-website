@@ -845,10 +845,6 @@ body::after {
   </div>
 </section>
       
-    
-  </div>
-</section>
-
 
 <section class="section" id="imagens">
   <div class="wrap">
@@ -969,56 +965,73 @@ body::after {
     </div>
 
    
+
 <div class="stories-container">
 
-
+  <!-- STORY 1 -->
   <div class="psp-story-card">
     <img
       src="https://lhukkddrpvukyyzsvgnm.supabase.co/storage/v1/object/public/psp-storys/IMG_0056.jpg"
-      alt="PSP Entertainment Story"
-      style="width:100%;height:100%;object-fit:cover;border-radius:14px;">
+      alt="PSP Entertainment Story">
   </div>
+
+  <!-- STORY 2 -->
   <div class="psp-story-card">
-  <video
-    src="https://lhukkddrpvukyyzsvgnm.supabase.co/storage/v1/object/public/psp-storys/YouCut_20260917_171104807_1.mp4"
-    autoplay
-    muted
-    loop
-    playsinline
-    preload="auto"
-    style="width:100%;height:100%;object-fit:cover;border-radius:14px;">
-  </video>
-    <!-- STORY 3 -->
-<div class="psp-story-card">
-  <img
-    src="https://lhukkddrpvukyyzsvgnm.supabase.co/storage/v1/object/public/psp-storys/IMG-20260701-WA0009.jpg"
-    alt="PSP Entertainment Story 3"
-    style="width:100%;height:100%;object-fit:cover;border-radius:14px;">
+    <video
+      src="https://lhukkddrpvukyyzsvgnm.supabase.co/storage/v1/object/public/psp-storys/YouCut_20260917_171104807_1.mp4"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="auto">
+    </video>
+  </div>
+
+  <!-- STORY 3 -->
+  <div class="psp-story-card">
+    <img
+      src="https://lhukkddrpvukyyzsvgnm.supabase.co/storage/v1/object/public/psp-storys/IMG-20260701-WA0009.jpg"
+      alt="PSP Entertainment Story 3">
+  </div>
+
+  <!-- STORY 4 -->
+  <div class="psp-story-card">
+    <img
+      src="https://lhukkddrpvukyyzsvgnm.supabase.co/storage/v1/object/public/psp-storys/IMG-20260701-WA0011.jpg"
+      alt="PSP Entertainment Story 4">
+  </div>
+
 </div>
 
-<!-- STORY 4 -->
-<div class="psp-story-card">
-  <img
-    src="https://lhukkddrpvukyyzsvgnm.supabase.co/storage/v1/object/public/psp-storys/IMG-20260701-WA0011.jpg"
-    alt="PSP Entertainment Story 4"
-    style="width:100%;height:100%;object-fit:cover;border-radius:14px;">
-</div>
-</div>
-</div>
 
   </div>
 </section>
 
 <style>
+
+/* =================================
+   PSP — STORIES HORIZONTAIS
+================================= */
+
 .stories-container {
   display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
   gap: 14px;
+  width: 100%;
   overflow-x: auto;
+  overflow-y: hidden;
   padding: 12px 2px 20px;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
 }
-.add-story, .psp-story-card {
+
+.psp-story-card {
   position: relative;
   flex: 0 0 145px;
+  width: 145px;
+  min-width: 145px;
   height: 230px;
   border-radius: 14px;
   overflow: hidden;
@@ -1026,50 +1039,38 @@ body::after {
   border: 1px solid rgba(212,175,55,.55);
   color: white;
   cursor: pointer;
+  scroll-snap-align: start;
 }
-.add-story {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 10px;
-  padding: 15px;
-  box-sizing: border-box;
-  text-align: center;
-}
-.story-plus {
-  font-size: 30px;
-  color: #d4af37;
-}
-#psp-stories-list {
-  display: flex;
-  gap: 14px;
-}
+
 .psp-story-card img,
 .psp-story-card video {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-.psp-story-card button {
-  position: absolute;
-  bottom: 10px;
-  left: 8px;
-  right: 8px;
-  padding: 8px;
-  background: #111;
-  color: #d4af37;
-  border: 1px solid #d4af37;
-  border-radius: 8px;
+
+.stories-container::-webkit-scrollbar,
+#servicos .services::-webkit-scrollbar {
+  height: 5px;
 }
-  
-/* Janela de visualização das histórias */
+
+.stories-container::-webkit-scrollbar-thumb,
+#servicos .services::-webkit-scrollbar-thumb {
+  background: #c6a66a;
+  border-radius: 10px;
+}
+
+/* =================================
+   PSP — VISUALIZADOR DE STORIES
+================================= */
+
 .story-viewer {
   position: fixed;
   inset: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.94);
+  background: rgba(0,0,0,.94);
   display: none;
   align-items: center;
   justify-content: center;
@@ -1077,7 +1078,7 @@ body::after {
 }
 
 .story-viewer.active {
-  display: flex;
+  display: flex !important;
 }
 
 .story-viewer img,
@@ -1086,6 +1087,29 @@ body::after {
   height: 87vh;
   object-fit: contain;
   border-radius: 12px;
+}
+
+.story-progress {
+  position: absolute;
+  top: 12px;
+  left: 5%;
+  width: 90%;
+  height: 3px;
+  background: rgba(255,255,255,.3);
+  z-index: 5;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.story-progress-fill {
+  height: 100%;
+  width: 0;
+  background: #d4af37;
+}
+
+@keyframes storyTimer {
+  from { width: 0; }
+  to { width: 100%; }
 }
 
 .story-viewer-close {
@@ -1097,10 +1121,9 @@ body::after {
   border: 0;
   font-size: 36px;
   cursor: pointer;
-  
-.story-viewer.active {
-    display: flex !important;
+  z-index: 10;
 }
+
 .story-individual-share {
   position: absolute;
   bottom: 12px;
@@ -1115,9 +1138,10 @@ body::after {
   cursor: pointer;
   z-index: 5;
 }
-  /* PSP - AGENCIAMENTO COM DESLIZE HORIZONTAL */
 
-/* PSP - AGENCIAMENTO HORIZONTAL */
+/* =================================
+   PSP — AGENCIAMENTO HORIZONTAL
+================================= */
 
 #servicos .services {
   display: flex !important;
@@ -1134,9 +1158,10 @@ body::after {
 }
 
 #servicos .service {
-  flex: 0 0 82% !important;
+  flex: 0 0 42% !important;
+  width: 42%;
   max-width: 420px;
-  min-width: 0;
+  min-width: 260px;
   scroll-snap-align: start;
 }
 
@@ -1148,6 +1173,31 @@ body::after {
   background: #c6a66a;
   border-radius: 10px;
 }
+
+/* =================================
+   PSP — TELEMÓVEIS
+================================= */
+
+@media (max-width: 640px) {
+  #servicos .service {
+    flex: 0 0 82% !important;
+    width: 82%;
+    min-width: 0;
+  }
+
+  .psp-story-card {
+    flex: 0 0 145px;
+    min-width: 145px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stories-container,
+  #servicos .services {
+    scroll-behavior: auto;
+  }
+}
+
 </style>
 
 
