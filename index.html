@@ -544,61 +544,7 @@ body.light .form input, body.light .form textarea {
 }
 
 
-/* PSP ENTERTAINMENT — SUBTLE BLUE & GOLD SIDELIGHTS */
 
-body::before,
-body::after {
-  content: "";
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  width: 3px;
-  pointer-events: none;
-  z-index: 999;
-  opacity: 0.55;
- background: linear-gradient(
-  180deg,
-  transparent 0%,
-  #8C4318 15%,
-  #F5A64A 30%,
-  #FFF0C2 42%,
-  #C87524 52%,
-  #FFE0A0 65%,
-  #9B4B18 80%,
-  transparent 100%
-);
-  background-size: 100% 200%;
-  animation: pspBlueGold 12s ease-in-out infinite alternate;
-}
-
-body::before {
-  left: 0;
-  box-shadow: 0 0 14px rgba(245, 166, 74, 0.55);
-}
-
-body::after {
-  right: 0;
-  box-shadow: 0 0 28px rgba(255, 208, 138, 0.35);
-  animation-delay: -6s;
-}
-
-@keyframes pspBlueGold {
-  from {
-    background-position: 0 0;
-    opacity: 0.20;
-  }
-  to {
-    background-position: 0 100%;
-    opacity: 0.80;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  body::before,
-  body::after {
-    animation: none;
-  }
-}
 
 /* PSP ENTERTAINMENT - EVENT CARDS */
 
@@ -1724,39 +1670,7 @@ document.getElementById("contactform").addEventListener("submit", function (even
   }
 }
 
-/* 6. SCROLL REVEAL */
 
-.reveal {
-  opacity: 0;
-  transform: translateY(45px);
-  transition:
-    opacity .9s ease,
-    transform .9s cubic-bezier(.2,.7,.2,1);
-}
-
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* 7. ACESSIBILIDADE E MOVIMENTO REDUZIDO */
-
-@media (prefers-reduced-motion: reduce) {
-  .reveal {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
-
-  .brandname,
-  .eyebrow,
-  .kicker,
-  .section h2 span,
-  .value b,
-  .event-poster span {
-    animation: none;
-  }
-}
   
 /* PSP — EFEITO ELÉTRICO GOLD 2027 */
 
