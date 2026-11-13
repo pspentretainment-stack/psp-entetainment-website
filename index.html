@@ -1434,7 +1434,18 @@ function addPSPStories(files) {
     }
   }
 } 
- 
+ document.querySelectorAll('.psp-story-card').forEach(card => {
+  const button = document.createElement('button');
+  button.className = 'story-individual-share';
+  button.textContent = '↗ Partilhar';
+
+  button.onclick = event => {
+    event.stopPropagation();
+    sharePSPStory(card);
+  };
+
+  card.appendChild(button);
+});
   
     } else {
       alert('A partilha direta deste ficheiro não é suportada neste dispositivo.');
