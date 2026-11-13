@@ -1327,8 +1327,8 @@ body::after {
 
 
 
-<script>
 
+<script>
 function openPSPStory(media) {
   let viewer = document.querySelector('.story-viewer');
 
@@ -1347,8 +1347,12 @@ function openPSPStory(media) {
 
   const enlarged = media.cloneNode(true);
   enlarged.removeAttribute('style');
-  enlarged.controls = media.tagName === 'VIDEO';
-  enlarged.playsInline = true;
+
+  if (enlarged.tagName === 'VIDEO') {
+    enlarged.controls = true;
+    enlarged.muted = false;
+    enlarged.playsInline = true;
+  }
 
   viewer.appendChild(enlarged);
   viewer.classList.add('active');
@@ -1358,23 +1362,25 @@ function openPSPStory(media) {
 
   const close = () => {
     viewer.classList.remove('active');
+
     if (enlarged.tagName === 'VIDEO') {
       enlarged.pause();
     }
+
     viewer.innerHTML = '';
     clearTimeout(timer);
   };
 
   viewer.querySelector('.story-viewer-close').onclick = close;
 
+  const timer = setTimeout(close, 15000);
+
   if (enlarged.tagName === 'VIDEO') {
     enlarged.play().catch(() => {});
   }
-
-  const timer = setTimeout(close, 15000);
 }
 
-// Abrir Stories existentes e futuras
+// Abrir Stories ao clicar
 document.querySelector('.stories-container')
   ?.addEventListener('click', function(event) {
     if (event.target.closest('button')) return;
@@ -1383,12 +1389,17 @@ document.querySelector('.stories-container')
     if (!card) return;
 
     const media = card.querySelector('img, video');
-    if (media) openPSPStory(media);
+
+    if (media) {
+      openPSPStory(media);
+    }
   });
 
-// Adicionar novas Stories
+// Permitir adicionar novas Stories
 function addPSPStories(files) {
   const container = document.querySelector('.stories-container');
+
+  if (!container) return;
 
   Array.from(files).forEach(file => {
     if (!file.type.startsWith('image/') &&
@@ -1407,58 +1418,15 @@ function addPSPStories(files) {
     if (media.tagName === 'VIDEO') {
       media.muted = true;
       media.playsInline = true;
+      media.loop = true;
     }
 
     card.appendChild(media);
     container.prepend(card);
   });
 }
-
- async function sharePSPSite() {
-  const shareData = {
-    title: 'PSP Entertainment',
-    text: 'Descobre a PSP Entertainment!',
-    url: 'https://pspentertainment.online'
-  };
-
-  try {
-    if (navigator.share) {
-      await navigator.share(shareData);
-    } else {
-      await navigator.clipboard.writeText(shareData.url);
-      alert('Link copiado! Já podes partilhar.');
-    }
-  } catch (error) {
-    if (error.name !== 'AbortError') {
-      alert('Não foi possível partilhar.');
-    }
-  }
-} 
- document.querySelectorAll('.psp-story-card').forEach(card => {
-  const button = document.createElement('button');
-  button.className = 'story-individual-share';
-  button.textContent = '↗ Partilhar';
-
-  button.onclick = event => {
-    event.stopPropagation();
-    sharePSPStory(card);
-  };
-
-  card.appendChild(button);
-});
-  
-    } else {
-      alert('A partilha direta deste ficheiro não é suportada neste dispositivo.');
-    }
-  } catch (error) {
-    alert('Não foi possível partilhar esta história.');
-  }
-}
-
-  card.appendChild(button);
-});
-  
 </script>
+
 
 
 <section class="section" id="contacto">
