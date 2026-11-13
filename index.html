@@ -537,7 +537,57 @@ body.light .form input, body.light .form textarea {
 .hero h1 span {
   display: inline-block;
 }
+.hero h1 span {
+  position: relative;
+  isolation: isolate;
+  animation: psp-glitch-main 3s infinite;
+}
 
+.hero h1 span::before,
+.hero h1 span::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  opacity: 0;
+}
+
+.hero h1 span::before {
+  color: #e5e5e5;
+  animation: psp-glitch-before 3s infinite;
+}
+
+.hero h1 span::after {
+  color: #111;
+  animation: psp-glitch-after 3s infinite;
+}
+
+@keyframes psp-glitch-main {
+  0%, 88%, 100% { transform: translate(0); }
+  89% { transform: translate(-2px, 1px); }
+  90% { transform: translate(2px, -1px); }
+  91% { transform: translate(-1px, 0); }
+  92% { transform: translate(0); }
+}
+
+@keyframes psp-glitch-before {
+  0%, 87%, 100% { opacity: 0; clip-path: inset(0 0 100% 0); transform: translate(0); }
+  88% { opacity: .8; clip-path: inset(15% 0 70% 0); transform: translate(-5px, 0); }
+  89% { opacity: .7; clip-path: inset(55% 0 25% 0); transform: translate(5px, 0); }
+  90% { opacity: .8; clip-path: inset(35% 0 50% 0); transform: translate(-3px, 0); }
+  91% { opacity: 0; }
+}
+
+@keyframes psp-glitch-after {
+  0%, 87%, 100% { opacity: 0; clip-path: inset(0 0 100% 0); transform: translate(0); }
+  88% { opacity: .8; clip-path: inset(70% 0 12% 0); transform: translate(5px, 0); }
+  89% { opacity: .7; clip-path: inset(25% 0 55% 0); transform: translate(-5px, 0); }
+  90% { opacity: .8; clip-path: inset(50% 0 35% 0); transform: translate(3px, 0); }
+  91% { opacity: 0; }
+}
 .hero .hero-inner {
   max-width: 100%;
   text-align: center;
@@ -917,9 +967,9 @@ body::after {
       <div class="eyebrow" data-pt="Cabo Verde" data-en=" Cape Verde ">Cabo Verde</div>
 
     <h1>
-  <span>2027</span>
-  <br>
-  <span>COMING SOON</span>
+ <span data-text="2027">2027</span>
+<br>
+<span data-text="COMING SOON">COMING SOON</span>
 </h1>
  
 
