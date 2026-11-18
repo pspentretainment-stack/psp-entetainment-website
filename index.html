@@ -2010,7 +2010,7 @@ function nextSlide() {
   current = (current + 1) % slides.length;
   showSlide(current);
 
-  const duration = slides[current].tagName === "VIDEO" ? 9000 : 6000;
+  const duration = slides[current].tagName === "VIDEO" ? 9000 : 2000;
   setTimeout(nextSlide, duration);
 }
 
@@ -2021,14 +2021,15 @@ setTimeout(nextSlide, 5000);
 /* HERO — 2027 COMING SOON MAIS LEVE */
 
 .hero h1 {
-  font-weight: 400 !important;
-  opacity: 0.78;
-  letter-spacing: 3px;
-  text-shadow: 0 2px 15px rgba(0,0,0,0.18);
+  font-weight: 300 !important;
+  opacity: 0.45;
+  letter-spacing: 4px;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.12);
+}
 }
 
 .hero p {
-  opacity: 0.72;
+  opacity: 0.52;
   font-weight: 300;
 }
 </body>
