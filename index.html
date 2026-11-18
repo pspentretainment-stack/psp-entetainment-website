@@ -805,6 +805,25 @@ body.light .form input, body.light .form textarea {
 
 <main>
 <section class="hero" id="inicio">
+  
+<div class="hero-slideshow">
+
+  <img src="./IMG_0055.jpg" class="hero-slide active" alt="PSP Entertainment">
+
+  <video class="hero-slide" muted playsinline preload="auto">
+    <source src="./hero-video-01.mp4" type="video/mp4">
+  </video>
+
+  <img src="./IMG_0044%20(1).jpg" class="hero-slide" alt="PSP Entertainment">
+
+  <video class="hero-slide" muted playsinline preload="auto">
+    <source src="./hero-video-02.mp4" type="video/mp4">
+  </video>
+
+  <img src="./IMG_0017.jpg" class="hero-slide" alt="PSP Entertainment">
+
+</div>
+
   <div class="wrap">
     <div class="hero-inner">
       <div class="eyebrow" data-pt="Cabo Verde" data-en=" Cape Verde ">Cabo Verde</div>
@@ -1837,6 +1856,61 @@ document.addEventListener("DOMContentLoaded", function () {
     gap: 15px;
   }
 }
+   
+/* PSP — HERO SLIDESHOW */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: #080808 !important;
+}
+
+.hero-slideshow {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0;
+  transition: opacity 1.2s ease-in-out;
+}
+
+.hero-slide.active {
+  opacity: 1;
+}
+
+.hero-slideshow::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,.35),
+    rgba(0,0,0,.55) 55%,
+    rgba(0,0,0,.75)
+  );
+  z-index: 2;
+}
+
+.hero > .wrap {
+  position: relative;
+  z-index: 3;
+}
+
+@media (max-width: 640px) {
+  .hero-slide {
+    object-position: center;
+  }
+}
+
 </style>
 
 <script>
@@ -1894,6 +1968,43 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   requestAnimationFrame(animate);
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const slides = Array.from(
+    document.querySelectorAll(".hero-slideshow .hero-slide")
+  );
+
+  if (slides.length < 2) return;
+
+  let current = 0;
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.remove("active");
+
+      if (slide.tagName === "VIDEO") {
+        slide.pause();
+        slide.currentTime = 0;
+      }
+    });
+
+    const next = slides[index];
+    next.classList.add("active");
+
+    if (next.tagName === "VIDEO") {
+      next.play().catch(() => {});
+    }
+  }
+
+  showSlide(current);
+
+  setInterval(() => {
+    current = (current + 1) % slides.length;
+    showSlide(current);
+  }, 6000);
 });
 </script>
 
