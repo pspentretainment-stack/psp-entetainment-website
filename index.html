@@ -1734,5 +1734,168 @@ document.addEventListener("DOMContentLoaded", function () {
   eventGrid.dataset.loopReady = "true";
 });
 </script>
+   
+<style>
+/* AGENDA PSP — IDENTIDADE ROXA + SCROLL */
+
+#imagens .event-marquee {
+  width: 100%;
+  overflow-x: auto !important;
+  overflow-y: hidden;
+  padding: 12px 0 25px;
+  cursor: grab;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: #9145D5 #171020;
+  mask-image: none;
+  -webkit-mask-image: none;
+}
+
+#imagens .event-grid {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  gap: 22px;
+  width: max-content;
+  overflow: visible !important;
+  animation: none !important;
+  transform: none !important;
+}
+
+#imagens .event-card {
+  flex: 0 0 360px !important;
+  width: 360px;
+  min-width: 360px;
+  overflow: hidden;
+  border-radius: 17px;
+  border: 1px solid rgba(151,71,255,.48) !important;
+  background: linear-gradient(145deg,#171020,#09080d 75%) !important;
+  box-shadow: 0 12px 35px rgba(0,0,0,.4),
+              0 0 22px rgba(125,45,220,.12) !important;
+}
+
+#imagens .event-card:hover {
+  border-color: #B65CFF !important;
+}
+
+#imagens .event-poster {
+  height: 190px;
+  min-height: 190px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: radial-gradient(ellipse at 70% 20%,rgba(177,70,255,.48),transparent 48%),
+              linear-gradient(135deg,#241036,#0b0911 75%) !important;
+}
+
+#imagens .event-poster span {
+  color: #D7B4FF !important;
+}
+
+#imagens .event-label {
+  color: #B77AFF !important;
+}
+
+#imagens .event-content h3 {
+  color: #FFFFFF !important;
+}
+
+#imagens .event-content p {
+  color: #BDB5C9 !important;
+}
+
+#imagens .event-card .btn {
+  border: 1px solid #9650D8 !important;
+  color: #E9D9FF !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+#imagens .event-card .btn.primary {
+  color: #FFFFFF !important;
+  background: linear-gradient(110deg,#7025BD,#A33BE8) !important;
+  border-color: transparent !important;
+}
+
+#imagens .event-marquee::-webkit-scrollbar {
+  height: 6px;
+}
+
+#imagens .event-marquee::-webkit-scrollbar-thumb {
+  background: #9145D5;
+  border-radius: 10px;
+}
+
+@media(max-width:640px) {
+  #imagens .event-card {
+    flex: 0 0 300px !important;
+    width: 300px;
+    min-width: 300px;
+  }
+
+  #imagens .event-grid {
+    gap: 15px;
+  }
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const area = document.querySelector("#imagens .event-marquee");
+  if (!area || area.dataset.autoReady === "true") return;
+
+  area.dataset.autoReady = "true";
+
+  let paused = false;
+  let resumeTimer;
+  let previousTime = 0;
+
+  function pauseScroll() {
+    paused = true;
+    clearTimeout(resumeTimer);
+  }
+
+  function resumeScroll() {
+    clearTimeout(resumeTimer);
+    resumeTimer = setTimeout(() => {
+      paused = false;
+    }, 1800);
+  }
+
+  area.addEventListener("pointerdown", pauseScroll);
+  area.addEventListener("pointerup", resumeScroll);
+  area.addEventListener("pointercancel", resumeScroll);
+  area.addEventListener("touchstart", pauseScroll, {passive:true});
+  area.addEventListener("touchend", resumeScroll, {passive:true});
+  area.addEventListener("wheel", () => {
+    pauseScroll();
+    resumeScroll();
+  }, {passive:true});
+
+  function animate(time) {
+    if (previousTime) {
+      const elapsed = Math.min(time - previousTime, 50);
+
+      if (!paused && !document.hidden) {
+        const halfWidth = area.scrollWidth / 2;
+
+        if (halfWidth > 0) {
+          area.scrollLeft += 22 * elapsed / 1000;
+
+          if (area.scrollLeft >= halfWidth) {
+            area.scrollLeft -= halfWidth;
+          }
+        }
+      }
+    }
+
+    previousTime = time;
+    requestAnimationFrame(animate);
+  }
+
+  requestAnimationFrame(animate);
+});
+</script>
+
 </body>
 </html>
