@@ -790,8 +790,7 @@ body.light .form input, body.light .form textarea {
 
     <nav class="links" id="navlinks">
       <a href="#inicio" data-pt="Início" data-en="Home">Início</a>
-      <a href="#imagens" data-pt="Imagens" data-en="Gallery">PSP</a>
-      <a href="#contacto" data-pt="Pedir contacto" data-en="Request contact">Pedir contacto</a>
+      <a href="#Eventos" data-pt="Eventos" data-en="Events">Eventos</a>
       <a href="#contactos" data-pt="Contactos" data-en="Contacts">Contactos</a>
     </nav>
 
@@ -829,7 +828,7 @@ body.light .form input, body.light .form textarea {
       <div class="eyebrow" data-pt="Cabo Verde" data-en=" Cape Verde ">Cabo Verde</div>
 
     <h1>
- <span data-text="2027">2027</span>
+ <span data-text="2027"></span>
 <br>
 <span data-text="COMING SOON">COMING SOON</span>
 </h1>
@@ -851,11 +850,9 @@ body.light .form input, body.light .form textarea {
     <div class="section-head">
       <div>
         
-        <h2 data-pt="Agenciamento.<br>" data-en="Management.<br>">Agenciamento<br>.</h2>
+        <h2 data-pt="Management<br>" data-en="Management.<br>">Management<br>.</h2>
       </div>
-      <p data-pt="Contrate nossos Artistas e DJs." data-en="Book our Artist and DJs.">
-       Contrate Nossos Artistas e DJs
-      </p>
+     
     </div>
 
     <div class="services">
@@ -889,14 +886,11 @@ body.light .form input, body.light .form textarea {
       <div>
         <div class="kicker"
              data-pt="Eventos"
-             data-en="Events">Eventos</div>
-        <h2 data-pt="Agenda de Eventos."
-            data-en="Event Calendar.">Agenda de Eventos.</h2>
+             data-en="Events">Events</div>
+        <h2 data-pt="Eventos."
+            data-en="Event Calendar.">Eventos.</h2>
       </div>
-      <p data-pt="Descubra os próximos eventos e experiências da PSP Entertainment."
-         data-en="Discover upcoming PSP Entertainment events and experiences.">
-        Descubra os próximos eventos e experiências da PSP Entertainment.
-      </p>
+     
     </div>
 
    <div class="event-marquee">
@@ -1914,7 +1908,20 @@ document.addEventListener("DOMContentLoaded", function () {
     object-position: center;
   }
 }
+/* HERO — 2027 COMING SOON MAIS LEVE */
 
+.hero h1 {
+  font-weight: 300 !important;
+  opacity: 0.45;
+  letter-spacing: 4px;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.12);
+}
+}
+
+.hero p {
+  opacity: 0.52;
+  font-weight: 300;
+}
 </style>
 
 <script>
@@ -2018,19 +2025,6 @@ setTimeout(nextSlide, 5000);
 
 });
 </script>
-/* HERO — 2027 COMING SOON MAIS LEVE */
 
-.hero h1 {
-  font-weight: 300 !important;
-  opacity: 0.45;
-  letter-spacing: 4px;
-  text-shadow: 0 2px 12px rgba(0,0,0,0.12);
-}
-}
-
-.hero p {
-  opacity: 0.52;
-  font-weight: 300;
-}
 </body>
 </html>
