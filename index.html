@@ -1880,10 +1880,14 @@ document.addEventListener("DOMContentLoaded", function () {
   object-fit: cover;
   object-position: center;
   opacity: 0;
-  transition: opacity 0.4s ease-in-out;
+  transform: translateX(100%);
+  transition: transform 1s ease-in-out, opacity 1s ease-in-out;
 }
 
 .hero-slide.active {
+  opacity: 1;
+  transform: translateX(0);
+}
   opacity: 1;
 }
 
@@ -2001,12 +2005,31 @@ document.addEventListener("DOMContentLoaded", function () {
 
   showSlide(current);
 
-  setInterval(() => {
-    current = (current + 1) % slides.length;
-    showSlide(current);
-  }, 1000);
+ 
+function nextSlide() {
+  current = (current + 1) % slides.length;
+  showSlide(current);
+
+  const duration = slides[current].tagName === "VIDEO" ? 9000 : 6000;
+  setTimeout(nextSlide, duration);
+}
+
+setTimeout(nextSlide, 5000);
+
 });
 </script>
+/* HERO — 2027 COMING SOON MAIS LEVE */
 
+.hero h1 {
+  font-weight: 400 !important;
+  opacity: 0.78;
+  letter-spacing: 3px;
+  text-shadow: 0 2px 15px rgba(0,0,0,0.18);
+}
+
+.hero p {
+  opacity: 0.72;
+  font-weight: 300;
+}
 </body>
 </html>
